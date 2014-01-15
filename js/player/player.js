@@ -133,8 +133,9 @@ var Player = function() {
 	var setGroups = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");
 		console.log(player.groups);
-		//player.createGroup(Hash.first(player.groups));
-		player.createGroup(player.groups['グループ1']);
+		for(var g in player.groups){
+			player.createGroup(player.groups[g]);
+		}
 	};
 
 	var animation = function(characters) {

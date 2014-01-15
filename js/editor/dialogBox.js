@@ -303,6 +303,48 @@ var DialogBoxWithThumbnails = function(config) {
 		clip : [rect2.getX() + 1, rect2.getY() + 1, rect2.getWidth() - 2, rect2.getHeight() - 2]
 	});
 
+	var simpleText = new Kinetic.Text({
+		x : rect2.getX() + rect2.getWidth() / 2,
+		y : rect2.getY() + rect2.getHeight() + 7,
+		text : "ゲームスタートに表示する",
+		fontStyle : 'normal',
+		fontSize : 12,
+		fontFamily : 'sans-serif',
+		fill : 'black'
+	});
+	dialogBox.add(simpleText);
+	simpleText.setOffsetX(simpleText.getWidth() / 2);
+
+	var inputDivParent = document.createElement("div");
+	document.body.appendChild(inputDivParent);
+	$(inputDivParent).css({
+		width : rect2.getWidth(),
+		height : 26,
+		//background: "green"
+	});
+	$(inputDivParent).offset({
+		left : rect2.getX(),
+		top : rect2.getY() + rect2.getHeight(),
+	});
+	dialogBox.inputDivParent = inputDivParent;
+
+	var CheckBox = function(name, left, top, value, onChange) {
+		var check = document.createElement("input");
+		check.setAttribute("type", "checkbox");
+		check.setAttribute("id", name);
+		check.setAttribute("value", "0");
+		check.style.position = "absolute";
+		check.style.top = top + "px";
+		check.style.left = left + "px";
+		dialogBox.inputDivParent.appendChild(check);
+		if (value != undefined) {
+			check.checked = (value == "true") ? true : false;
+		}
+		check.onchange = onChange;
+		return check;
+	};
+	dialogBox.checkBox = new CheckBox('checkboxShowStartup', $(inputDivParent).width() / 2 - simpleText.getWidth() / 2 - 20, 3, "true");
+
 	rectInner.add(rect2);
 	rectInner.add(dialogBox.panels);
 	rectInner.add(dialogBox.scrollBar);
@@ -483,7 +525,7 @@ var DialogBoxWithAddThumbnails = function(config) {
 
 	var setSelectThumbnails = function() {
 		for (var i = 0; i < characterPanels.length; i++) {
-			if(characterPanels[i].groupXML == undefined){
+			if (characterPanels[i].isGroup == undefined) {
 				addSelectPanel({
 					name : characterPanels[i].getId(),
 					path : characterPanels[i].path,
@@ -513,18 +555,7 @@ var DialogBoxWithAddThumbnails = function(config) {
 	});
 
 	var groupName = stage.groups.getAutoName("グループ1");
-	
-	var simpleText = new Kinetic.Text({
-		x : rect2.getX() + rect2.getWidth() / 2 - 50 - 10,
-		y : rect2.getY() + 16,
-		text : "グループ名",
-		fontSize : 16,
-		fontFamily : 'sans-serif',
-		fill : 'white',
-		align : 'right',
-	});
-	simpleText.setOffsetX(Math.round(simpleText.getWidth()));
-	
+
 	var inputDivParent = document.createElement("div");
 	document.body.appendChild(inputDivParent);
 	$(inputDivParent).css({
@@ -537,22 +568,34 @@ var DialogBoxWithAddThumbnails = function(config) {
 		top : rect2.getY(),
 	});
 	dialogBox.inputDivParent = inputDivParent;
-	
+
 	var textField = document.createElement("input");
 	inputDivParent.appendChild(textField);
 	textField.value = groupName;
 	//textField.setAttribute("placeholder", groupName);
 	textField.style.position = "absolute";
 	textField.style.top = "10px";
-	textField.style.left = (rect2.getWidth()/2 - 50) + "px";
+	textField.style.left = (rect2.getWidth() / 2 - $(textField).width() / 2) + "px";
 	dialogBox.textField = textField;
+
+	var simpleText = new Kinetic.Text({
+		x : rect2.getX() + rect2.getWidth() / 2 - $(textField).width() / 2 - 10,
+		y : rect2.getY() + 16,
+		text : "グループ名",
+		fontSize : 16,
+		fontFamily : 'sans-serif',
+		fill : 'white',
+		align : 'right',
+	});
+	simpleText.setOffsetX(Math.round(simpleText.getWidth()));
+
 	//
 	/*var imgEdit = stage.images['imgWhiteEdit'].clone();
-	imgEdit.setAttrs({
-		x : simpleText.getX() + simpleText.getWidth()/2 + 10,
-		y : simpleText.getY() - 2,
-	});*/
-	
+	 imgEdit.setAttrs({
+	 x : simpleText.getX() + simpleText.getWidth()/2 + 10,
+	 y : simpleText.getY() - 2,
+	 });*/
+
 	dialogBox.scrollBar = new Kinetic.Rect({
 		x : rect2.getX() + rect2.getWidth() - 16,
 		y : rect2.getY() + 6 + titleMargin,
@@ -579,7 +622,7 @@ var DialogBoxWithAddThumbnails = function(config) {
 			dialogBox.scrollBar.hide();
 		} else {
 			dialogBox.scrollBar.show();
-			dialogBox.scrollBar.setHeight((rect2.getHeight()-titleMargin)  / dialogBox.panels.getHeight() * (rect2.getHeight()-titleMargin) - 12);
+			dialogBox.scrollBar.setHeight((rect2.getHeight() - titleMargin) / dialogBox.panels.getHeight() * (rect2.getHeight() - titleMargin) - 12);
 		}
 		dialogBox.draw();
 	};
@@ -725,10 +768,53 @@ var DialogBoxWithAddThumbnails = function(config) {
 	});
 
 	dialogBox.superDestroy = dialogBox.destroy;
-	dialogBox.destroy = function(){
+	dialogBox.destroy = function() {
 		document.body.removeChild(dialogBox.inputDivParent);
+		document.body.removeChild(dialogBox.inputDivParent2);
 		dialogBox.superDestroy();
 	};
+
+	var simpleText2 = new Kinetic.Text({
+		x : rect2.getX() + rect2.getWidth() / 2,
+		y : rect2.getY() + rect2.getHeight() + 7,
+		text : "ゲームスタートに表示する",
+		fontStyle : 'normal',
+		fontSize : 12,
+		fontFamily : 'sans-serif',
+		fill : 'black'
+	});
+	simpleText2.setOffsetX(simpleText2.getWidth() / 2);
+	dialogBox.add(simpleText2);
+
+	var inputDivParent2 = document.createElement("div");
+	document.body.appendChild(inputDivParent2);
+	$(inputDivParent2).css({
+		width : rect2.getWidth(),
+		height : 26,
+		//background: "green"
+	});
+	$(inputDivParent2).offset({
+		left : rect2.getX(),
+		top : rect2.getY() + rect2.getHeight(),
+	});
+	dialogBox.inputDivParent2 = inputDivParent2;
+
+	var CheckBox = function(name, left, top, value, onChange) {
+		var check = document.createElement("input");
+		check.setAttribute("type", "checkbox");
+		check.setAttribute("id", name);
+		check.setAttribute("value", "0");
+		check.style.position = "absolute";
+		check.style.top = top + "px";
+		check.style.left = left + "px";
+		dialogBox.inputDivParent2.appendChild(check);
+		if (value != undefined) {
+			check.checked = (value == "true") ? true : false;
+		}
+		check.onchange = onChange;
+		return check;
+	};
+	dialogBox.checkBox = new CheckBox('checkboxShowStartup', $(inputDivParent2).width() / 2 - simpleText2.getWidth() / 2 - 20, 3, "true");
 
 	dialogBox.add(rect2);
 	dialogBox.add(simpleText);

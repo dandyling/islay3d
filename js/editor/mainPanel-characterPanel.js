@@ -26,7 +26,7 @@ var toggleCharactersPanel = function(charPanel) {
 			var tabs = $(stage.selectedPanel.tabDiv).tabs();
 			var index = tabs.tabs("option", "active", 0);
 			tabs.tabs("refresh");
-			if (charPanel.groupXML == undefined) {
+			if (charPanel.isGroup == undefined) {
 				player.showCharacter(charPanel);
 			}
 		} else {
@@ -72,6 +72,8 @@ var addCharacterPanel = function(config) {
 	});
 	charPanel.path = config.pathImage;
 	charPanel.modelPath = config.pathModel;
+	charPanel.parts = config.name;
+	charPanel.isShow = config.isShow;
 
 	charPanel.diagrams = {};
 	charPanel.array = new Array();
@@ -168,7 +170,8 @@ var addCharacterPanel = function(config) {
 				addCharacterPanel({
 					name : charName,
 					pathImage : charPanel.path,
-					pathModel : charPanel.modelPath
+					pathModel : charPanel.modelPath,
+					isShow : charPanel.isShow
 				});
 				var newCharPanel = characterPanels.pop();
 				characterPanels.splice(index + 1, 0, newCharPanel);
@@ -264,13 +267,12 @@ var addCharacterPanel = function(config) {
 		var character = document.createElement("character");
 		$(character).attr({
 			name : charPanel.getId(),
-			parts : config.name,
+			parts : charPanel.parts,
 			rotation : "1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000"
 		});
 
 		for (var a in charPanel.diagrams) {
 			var statediagram = charPanel.diagrams[a].getXML();
-			//console.log(a, charPanel.diagrams[a].getXML);
 			character.appendChild(statediagram);
 		}
 
@@ -297,6 +299,8 @@ var addGroupPanel = function(config) {
 		x : posX,
 		y : posY,
 	});
+	groupPanel.isGroup = true;
+	groupPanel.isShow = config.isShow;
 
 	groupPanel.diagrams = {};
 	groupPanel.array = new Array();
@@ -336,29 +340,35 @@ var addGroupPanel = function(config) {
 	groupPanel.add(rectPanel);
 	groupPanel.rectPanel = rectPanel;
 
-	var groupXML = document.createElement("group");
-	$(groupXML).attr({
-		name : config.name
-	});
-	groupPanel.groupXML = groupXML;
-	
+	groupPanel.getXML = function() {
+		var group = document.createElement("group");
+		$(group).attr('name', groupPanel.get('Text')[0].getText());
+
+		var characterImages = groupPanel.get('Image');
+		for (var i = 0; i < characterImages.length; i++) {
+			var fork = document.createElement("fork");
+			$(fork).attr({
+				character : characterImages[i].getId().replace("imgChar", ""),
+				img : characterImages[i].getImage().src
+			});
+			$(group).append(fork);
+		}
+
+		return group;
+	};
+
 	for (var i = 0; i < config.characters.length; i++) {
+		var disX = (config.characters.length != 1) ? (m3 + (80 - m3 * 2 - 200 * 0.2) / (config.characters.length - 1) * (i)) : 0;
+		var scaX = (config.characters.length != 1) ? 0.2 : 0.4;
+		var disY = (config.characters.length != 1) ? 150 * 0.2 / 2 : 0;
 		var characterImage = new Kinetic.Image({
-			x : m1 + m3 + (80 - m3 * 2 - 200 * 0.2) / (config.characters.length - 1) * (i),
-			y : m1 + 150 * 0.2 / 2,
+			id : "imgChar" + config.characters[i].name,
+			x : m1 + disX,
+			y : m1 + disY,
 			image : config.characters[i].img,
-			scale : 0.2,
+			scale : scaX,
 		});
 		groupPanel.add(characterImage);
-
-		/** append xml */
-		var forkXML = document.createElement("fork");
-		var characterName = config.characters[i].name;
-		$(forkXML).attr({
-			character : characterName,
-			img : config.characters[i].img.src
-		});
-		$(groupPanel.groupXML).append(forkXML);
 	}
 
 	var rectInvi = new Kinetic.Rect({
@@ -382,8 +392,7 @@ var addGroupPanel = function(config) {
 	rectInvi.on('click', function() {
 		toggleCharactersPanel(this.getParent());
 		dialogBoxes.close();
-		var copiedResource = {};
-		$.extend(copiedResource, dialogBoxResources['group-create']);
+		var copiedResource = dialogBoxResources['group-edit'];
 		copiedResource.title = 'グループ編集';
 		copiedResource.buttons[0].text = "ほぞん";
 		copiedResource.buttons[0].onClick = function() {
@@ -407,30 +416,18 @@ var addGroupPanel = function(config) {
 				});
 			}
 
-			var groupXML = document.createElement("group");
-			$(groupXML).attr({
-				name : groupName
-			});
-			groupPanel.groupXML = groupXML;
-
 			for (var i = 0; i < groupCharacters.length; i++) {
 				var characterImage = new Kinetic.Image({
+					id : groupCharacters[i].name,
 					x : m1 + m3 + (80 - m3 * 2 - 200 * 0.2) / (groupCharacters.length - 1) * (i),
 					y : m1 + 150 * 0.2 / 2,
 					image : groupCharacters[i].img,
 					scale : 0.2,
 				});
 				groupPanel.add(characterImage);
-
-				/** append xml */
-				var forkXML = document.createElement("fork");
-				var characterName = groupCharacters[i].name;
-				$(forkXML).attr({
-					character : characterName,
-					img : groupCharacters[i].img.src
-				});
-				$(groupPanel.groupXML).append(forkXML);
 			}
+
+			groupPanel.isShow = $('#checkboxShowStartup').is(':checked');
 			rectInvi.moveToTop();
 			groupPanel.draw();
 			dialogBoxes.close();
@@ -441,8 +438,8 @@ var addGroupPanel = function(config) {
 		};
 		var dialogBox1 = new DialogBoxWithAddThumbnails(copiedResource);
 
-		for (var i = 0; i < groupPanel.groupXML.children.length; i++) {
-			var fork = groupPanel.groupXML.children[i];
+		for (var i = 0; i < groupPanel.getXML().children.length; i++) {
+			var fork = groupPanel.getXML().children[i];
 			dialogBox1.addPanel({
 				name : fork.attributes["character"].value,
 				path : fork.attributes["img"].value,
@@ -487,7 +484,8 @@ var addGroupPanel = function(config) {
 				 addCharacterPanel({
 				 name : charName,
 				 pathImage : charPanel.path,
-				 pathModel : charPanel.modelPath
+				 pathModel : charPanel.modelPath,
+				 isShow : charPanel.isShow
 				 });
 				 var newCharPanel = characterPanels.pop();
 				 characterPanels.splice(index + 1, 0, newCharPanel);
@@ -580,9 +578,6 @@ var addGroupPanel = function(config) {
 		}
 	};
 
-	groupPanel.getXML = function() {
-		return groupPanel.groupXML;
-	};
 	toggleCharactersPanel(groupPanel);
 
 	return groupPanel;
@@ -617,8 +612,11 @@ stage.getXML = function() {
 
 	var characterlist = document.createElement("characterlist");
 	for (var i = 0; i < characterPanels.length; i++) {
-		var character = characterPanels[i].getXML();
-		characterlist.appendChild(character);
+		if (characterPanels[i].isGroup == undefined) {
+			var character = characterPanels[i].getXML();
+			characterlist.appendChild(character);
+
+		}
 	}
 	islay3d.appendChild(characterlist);
 
@@ -627,7 +625,12 @@ stage.getXML = function() {
 	$(groupMain).attr("name", "main");
 	grouplist.appendChild(groupMain);
 	for (var i = 0; i < characterPanels.length; i++) {
-		if (characterPanels[i].groupXML == undefined) {
+		console.log(characterPanels[i].isShow);
+		if (!characterPanels[i].isShow) {
+			continue;
+		}
+
+		if (characterPanels[i].isGroup == undefined) {
 			var fork = document.createElement("fork");
 			$(fork).attr({
 				character : characterPanels[i].getId(),
@@ -638,11 +641,11 @@ stage.getXML = function() {
 			groupMain.appendChild(fork);
 		} else {
 			var groupNew = document.createElement("group");
-			$(groupNew).attr("name", characterPanels[i].groupXML.attributes["name"].value);
-			for (var j = 0; j < characterPanels[i].groupXML.children.length; j++) {
+			$(groupNew).attr("name", characterPanels[i].getXML().attributes["name"].value);
+			for (var j = 0; j < characterPanels[i].getXML().children.length; j++) {
 				var fork = document.createElement("fork");
 				$(fork).attr({
-					character : characterPanels[i].groupXML.children[j].attributes["character"].value,
+					character : characterPanels[i].getXML().children[j].attributes["character"].value,
 					x : "0.000000",
 					y : "0.000000",
 					z : "0.000000",

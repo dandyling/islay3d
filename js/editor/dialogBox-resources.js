@@ -122,6 +122,7 @@ var createImportModelButton = function() {
 	dialog1.superDestroy = dialog1.destroy;
 	dialog1.destroy = function() {
 		dialog1.superDestroy();
+		document.body.removeChild(dialog1.inputDivParent);
 		$('#divfileupload').remove();
 	};
 };
@@ -219,7 +220,8 @@ dialogBoxResources['character-create'] = {
 			addCharacterPanel({
 				name : this.config.name,
 				pathImage : this.config.path,
-				pathModel : this.config.path.replace('png', 'dae')
+				pathModel : this.config.path.replace('png', 'dae'),
+				isShow : $('#checkboxShowStartup').is(':checked')
 			});
 
 			dialogBoxes.close();
@@ -262,10 +264,51 @@ dialogBoxResources['group-create'] = {
 			
 			addGroupPanel({
 				name : groupName,
+				isShow : $('#checkboxShowStartup').is(':checked'),
 				characters : groupCharacters
 			});
 					
 			dialogBoxes.close();
+		}
+	}, {
+		x : Math.round(window.innerWidth / 2 - 630 / 2) + 15,
+		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
+		width : 150,
+		height : 28,
+		text : 'キャンセル',
+		onClick : function() {
+			dialogBoxes.close();
+		}
+	}],
+	thumbnailsSelect : {
+		path : 'users/Google105162652429509013137/models/',
+		mime : '.png',
+		scale : 0.3,
+	},
+	thumbnails : {
+		path : 'users/Google105162652429509013137/models/',
+		mime : '.png',
+		scale : 0.5,
+	},
+	callback : function() {
+		var layer = stage.get('#group-create')[0].getParent();
+		layer.tooltips = new Array();
+	}
+};
+
+dialogBoxResources['group-edit'] = {
+	id : 'group-create',
+	title : 'グループ編集',
+	width : 630,
+	height : 340,
+	buttons : [{
+		x : Math.round(window.innerWidth / 2 + 630 / 2) - 150 - 15,
+		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
+		width : 150,
+		height : 28,
+		text : 'ほぞん',
+		isMain : true,
+		onClick : function() {
 		}
 	}, {
 		x : Math.round(window.innerWidth / 2 - 630 / 2) + 15,
@@ -327,7 +370,8 @@ dialogBoxResources['character-import-model'] = {
 				addCharacterPanel({
 					name : modelName,
 					pathImage : "img/na.png",
-					pathModel : "users/" + stage.pid + "/models/" + modelName + ".dae"
+					pathModel : "users/" + stage.pid + "/models/" + modelName + ".dae",
+					isShow : true
 				});
 				$.ajax({
 					type : "POST",
