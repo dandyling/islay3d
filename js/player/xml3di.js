@@ -24,6 +24,8 @@ function Xml3di(filename) {
         success: function(xml3di) {
         	player.XML3DI = $(xml3di).find("islay3d")[0];
 			player.data = new Hash(xml3di.getElementsByTagName("data"), "name");
+			player.characters = new Hash(xml3di.getElementsByTagName("character"), "name");
+			player.groups = new Hash(xml3di.getElementsByTagName("group"), "name");
 			
 			player.XML3DI.print = function(){
 			    this.printChild(player.XML3DI.getElementsByTagName("islay3d")[0]);
@@ -54,10 +56,14 @@ function Xml3di(filename) {
 
 function loadGame(xml3di){
 	// the code starting from here is for opening file
-	var characters = xml3di.getElementsByTagName("character");
 	var data = player.data;
-	for (var i = 0; i < characters.length; i++) {
-		loadCharacter(characters[i], data);
+	var characters = player.characters;
+	var groups = player.groups;
+	for (var c in characters){
+		loadCharacter(characters[c], data);
+	}
+	for (var g in groups) {
+		loadGroup(groups[g], characters, data);
 	}
 	setTimeout(function(){
 		stage.get('#rectPanel')[0].fire('click');
@@ -87,6 +93,51 @@ function loadCharacter(characterXML, data){
 	}
 	charPanel.selectedDiagram = charPanel.array[0];
 	charPanel.selectedDiagram.show();
+};
+
+function loadGroup(groupXML, characters, data){
+	var groupName = groupXML.attributes["name"].value;
+	var groupCharacters = new Array();
+	for(var i=0; i<groupXML.children.length; i++){
+		if(groupName == "main"){
+			continue;
+		}
+		var fork = groupXML.children[i];
+		var charParts = characters[fork.attributes["character"].value].attributes["parts"].value;
+		var modelPath = data[charParts].attributes["path"].value;
+		var thumbnailPath = modelPath.replace("dae", "png");
+		
+		var preview = new Image();
+		preview.onload = function() {
+			var image = new Kinetic.Image({
+				image : preview
+			});
+			var rectPanel = new Kinetic.Rect({
+				id : 'rectPanel',
+				x : m1,
+				y : m1,
+				width : 80,
+				height : 60,
+				fillPatternImage : preview,
+				fillPatternScale : 80 / 200,
+				stroke : 'black',
+				strokeWidth : 1
+			});
+			
+			groupCharacters.push({
+				name : fork.attributes["character"].value,
+				img : rectPanel.getFillPatternImage(),
+			});
+			if(groupCharacters.length == groupXML.children.length){
+				addGroupPanel({
+					name : groupName,
+					isShow : true,
+					characters : groupCharacters
+				});
+			}
+		};
+		preview.src = thumbnailPath;
+	}
 };
 
 function loadStateDiagram(charPanel, statediagramXML){

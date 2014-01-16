@@ -43,11 +43,7 @@ var Player = function() {
 		setCharacters();
 		setGroups();
 		collisionTimeout = true;
-		console.log(player.scene3d.childNodes);
 		setTimeout(function() {
-			player.scene3d.childNodes[0].XML.attributes["name"].value = "fighter1";
-			player.scene3d.childNodes[1].XML.attributes["name"].value = "fighter2";
-			player.scene3d.childNodes[2].XML.attributes["name"].value = "fighter3";
 			player.animate = function() {
 				animation(player.scene3d.childNodes);
 			};
