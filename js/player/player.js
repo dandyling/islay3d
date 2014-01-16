@@ -164,43 +164,6 @@ var Player = function() {
 		player.setInput();
 	};
 
-	/*var e = document.getElementById("enchant-stage");
-	 e.onclick = function() {
-	 //glcvs.style.left = "600px";
-	 if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
-	 RunPrefixMethod(document, "CancelFullScreen");
-	 }
-	 else {
-	 RunPrefixMethod(e, "RequestFullScreen");
-	 //var s = window.innerWidth/480;
-	 var s = 2;
-	 glcvs.style.top = "-480px"
-	 glcvs.style[enchant.ENV.VENDOR_PREFIX + 'Transform'] = 'scale(' + s + ')';
-
-	 }
-
-	 }
-
-	 var pfx = ["webkit", "moz", "ms", "o", ""];
-	 function RunPrefixMethod(obj, method) {
-
-	 var p = 0, m, t;
-	 while (p < pfx.length && !obj[m]) {
-	 m = method;
-	 if (pfx[p] == "") {
-	 m = m.substr(0,1).toLowerCase() + m.substr(1);
-	 }
-	 m = pfx[p] + m;
-	 t = typeof obj[m];
-	 if (t != "undefined") {
-	 pfx = [pfx[p]];
-	 return (t == "function" ? obj[m]() : obj[m]);
-	 }
-	 p++;
-	 }
-
-	 }*/
-
 	return player;
 };
 enchant();
