@@ -117,6 +117,7 @@ var Player = function() {
 
 	player.createGroup = function(group) {
 		var forks = group.getElementsByTagName("fork");
+		console.log(forks);
 		for (var i = 0; i < forks.length; i++) {
 			var name = forks[i].attributes["character"].value;
 			var XMLData = player.characters[name].cloneNode(true);
@@ -132,7 +133,9 @@ var Player = function() {
 	var setGroups = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");
 		for(var g in player.groups){
-			player.createGroup(player.groups[g]);
+			if(player.groups[g].attributes["isshow"].value == "true"){
+				player.createGroup(player.groups[g]);	
+			}
 		}
 	};
 

@@ -314,6 +314,7 @@ var DialogBoxWithThumbnails = function(config) {
 	});
 	dialogBox.add(simpleText);
 	simpleText.setOffsetX(simpleText.getWidth() / 2);
+	dialogBox.simpleText = simpleText;
 
 	var inputDivParent = document.createElement("div");
 	document.body.appendChild(inputDivParent);

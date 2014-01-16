@@ -31,7 +31,10 @@ var drawMenuBar = function() {
 				dialogBoxes.close();
 				dialogBoxResources['open-file'].thumbnails.path = 'users/' + stage.pid + '/files/';
 				var dialogBox1 = new DialogBoxWithThumbnails(dialogBoxResources['open-file']);
+				document.body.removeChild(dialogBox1.inputDivParent);
+				dialogBox1.simpleText.destroy();
 				dialogBoxes.push(dialogBox1);
+				
 			}	
 		}
 	});

@@ -301,6 +301,11 @@ var addGroupPanel = function(config) {
 		y : posY,
 	});
 	groupPanel.isGroup = true;
+	if(config.isshow == "true"){
+		config.isshow = true;
+	} else if(config.isshow == "false"){
+		config.isshow = false;
+	}
 	groupPanel.isshow = config.isshow;
 
 	groupPanel.diagrams = {};
@@ -351,7 +356,10 @@ var addGroupPanel = function(config) {
 			var fork = document.createElement("fork");
 			$(fork).attr({
 				character : characterImages[i].getId().replace("imgChar", ""),
-				img : characterImages[i].getImage().src
+				img : characterImages[i].getImage().src,
+				x : "0.000000",
+				y : "0.000000",
+				z : "0.000000",
 			});
 			$(group).append(fork);
 		}
@@ -625,16 +633,14 @@ stage.getXML = function() {
 	var grouplist = document.createElement("grouplist");
 	var groupMain = document.createElement("group");
 	$(groupMain).attr("name", "main");
+	$(groupMain).attr("isshow", true);
 	grouplist.appendChild(groupMain);
 	for (var i = 0; i < characterPanels.length; i++) {
-		
-		if(characterPanels[i].isshow == "true"){
-			characterPanels[i].isshow = true;
-		}
-		if (characterPanels[i].isshow != true) {
-			continue;
-		}
 		if (characterPanels[i].isGroup == undefined) {
+			characterPanels[i].isshow = (characterPanels[i].isshow == "true") ? true : characterPanels[i].isshow;
+			if (characterPanels[i].isshow != true) {
+				continue;
+			}
 			var fork = document.createElement("fork");
 			$(fork).attr({
 				character : characterPanels[i].getId(),
@@ -644,18 +650,9 @@ stage.getXML = function() {
 			});
 			groupMain.appendChild(fork);
 		} else {
-			var groupNew = document.createElement("group");
-			$(groupNew).attr("name", characterPanels[i].getXML().attributes["name"].value);
-			$(groupNew).attr("isshow", characterPanels[i].getXML().attributes["isshow"].value);
-			for (var j = 0; j < characterPanels[i].getXML().children.length; j++) {
-				var fork = document.createElement("fork");
-				$(fork).attr({
-					character : characterPanels[i].getXML().children[j].attributes["character"].value,
-					x : "0.000000",
-					y : "0.000000",
-					z : "0.000000",
-				});
-				groupNew.appendChild(fork);
+			var groupNew = characterPanels[i].getXML().cloneNode(true);
+			for (var j = 0; j < groupNew.children.length; j++) {
+				groupNew.children[j].removeAttribute("img");
 			}
 			grouplist.appendChild(groupNew);
 		}
