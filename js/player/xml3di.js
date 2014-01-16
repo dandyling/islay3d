@@ -23,10 +23,10 @@ function Xml3di(filename) {
         dataType: "xml",
         success: function(xml3di) {
         	player.XML3DI = $(xml3di).find("islay3d")[0];
+        	
 			player.data = new Hash(xml3di.getElementsByTagName("data"), "name");
 			player.characters = new Hash(xml3di.getElementsByTagName("character"), "name");
 			player.groups = new Hash(xml3di.getElementsByTagName("group"), "name");
-			
 			player.XML3DI.print = function(){
 			    this.printChild(player.XML3DI.getElementsByTagName("islay3d")[0]);
 			};
@@ -107,38 +107,42 @@ function loadGroup(groupXML, characters, data){
 		var charParts = characters[fork.attributes["character"].value].attributes["parts"].value;
 		var modelPath = data[charParts].attributes["path"].value;
 		var thumbnailPath = modelPath.replace("dae", "png");
-		
-		var preview = new Image();
-		preview.onload = function() {
-			var image = new Kinetic.Image({
-				image : preview
-			});
-			var rectPanel = new Kinetic.Rect({
-				id : 'rectPanel',
-				x : m1,
-				y : m1,
-				width : 80,
-				height : 60,
-				fillPatternImage : preview,
-				fillPatternScale : 80 / 200,
-				stroke : 'black',
-				strokeWidth : 1
-			});
 			
-			groupCharacters.push({
-				name : fork.attributes["character"].value,
-				img : rectPanel.getFillPatternImage(),
-			});
-			if(groupCharacters.length == groupXML.children.length){
-				addGroupPanel({
-					name : groupName,
-					isshow : groupXML.attributes["isshow"].value,
-					characters : groupCharacters
-				});
-			}
-		};
-		preview.src = thumbnailPath;
+		createGroupPanel(fork, thumbnailPath, groupCharacters, groupXML);
 	}
+};
+
+function createGroupPanel(fork, thumbnailPath, groupCharacters, groupXML){
+	var preview = new Image();
+	preview.onload = function() {
+		var image = new Kinetic.Image({
+			image : preview
+		});
+		var rectPanel = new Kinetic.Rect({
+			id : 'rectPanel',
+			x : m1,
+			y : m1,
+			width : 80,
+			height : 60,
+			fillPatternImage : preview,
+			fillPatternScale : 80 / 200,
+			stroke : 'black',
+			strokeWidth : 1
+		});
+		
+		groupCharacters.push({
+			name : fork.attributes["character"].value,
+			img : rectPanel.getFillPatternImage(),
+		});
+		if(groupCharacters.length == groupXML.children.length){
+			addGroupPanel({
+				name : groupXML.attributes["name"].value,
+				isshow : groupXML.attributes["isshow"].value,
+				characters : groupCharacters
+			});
+		}
+	};
+	preview.src = thumbnailPath;
 };
 
 function loadStateDiagram(charPanel, statediagramXML){

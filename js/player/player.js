@@ -117,7 +117,6 @@ var Player = function() {
 
 	player.createGroup = function(group) {
 		var forks = group.getElementsByTagName("fork");
-		console.log(forks);
 		for (var i = 0; i < forks.length; i++) {
 			var name = forks[i].attributes["character"].value;
 			var XMLData = player.characters[name].cloneNode(true);
