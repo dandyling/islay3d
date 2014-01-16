@@ -82,6 +82,7 @@ function loadCharacter(characterXML, data){
 		name : charName,
 		pathImage : thumbnailPath,
 		pathModel : modelPath,
+		isshow : characterXML.attributes["isshow"].value,
 		noTab : true
 	});
 	
@@ -131,7 +132,7 @@ function loadGroup(groupXML, characters, data){
 			if(groupCharacters.length == groupXML.children.length){
 				addGroupPanel({
 					name : groupName,
-					isShow : true,
+					isshow : groupXML.attributes["isshow"].value,
 					characters : groupCharacters
 				});
 			}

@@ -221,7 +221,7 @@ dialogBoxResources['character-create'] = {
 				name : this.config.name,
 				pathImage : this.config.path,
 				pathModel : this.config.path.replace('png', 'dae'),
-				isShow : $('#checkboxShowStartup').is(':checked')
+				isshow : $('#checkboxShowStartup').is(':checked')
 			});
 
 			dialogBoxes.close();
@@ -264,7 +264,7 @@ dialogBoxResources['group-create'] = {
 			
 			addGroupPanel({
 				name : groupName,
-				isShow : $('#checkboxShowStartup').is(':checked'),
+				isshow : $('#checkboxShowStartup').is(':checked'),
 				characters : groupCharacters
 			});
 					
@@ -371,7 +371,7 @@ dialogBoxResources['character-import-model'] = {
 					name : modelName,
 					pathImage : "img/na.png",
 					pathModel : "users/" + stage.pid + "/models/" + modelName + ".dae",
-					isShow : true
+					isshow : true
 				});
 				$.ajax({
 					type : "POST",

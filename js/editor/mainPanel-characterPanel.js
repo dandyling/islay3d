@@ -73,7 +73,7 @@ var addCharacterPanel = function(config) {
 	charPanel.path = config.pathImage;
 	charPanel.modelPath = config.pathModel;
 	charPanel.parts = config.name;
-	charPanel.isShow = config.isShow;
+	charPanel.isshow = config.isshow;
 
 	charPanel.diagrams = {};
 	charPanel.array = new Array();
@@ -171,7 +171,7 @@ var addCharacterPanel = function(config) {
 					name : charName,
 					pathImage : charPanel.path,
 					pathModel : charPanel.modelPath,
-					isShow : charPanel.isShow
+					isshow : charPanel.isshow
 				});
 				var newCharPanel = characterPanels.pop();
 				characterPanels.splice(index + 1, 0, newCharPanel);
@@ -268,7 +268,8 @@ var addCharacterPanel = function(config) {
 		$(character).attr({
 			name : charPanel.getId(),
 			parts : charPanel.parts,
-			rotation : "1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000"
+			isshow : charPanel.isshow,
+			rotation : "1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000",
 		});
 
 		for (var a in charPanel.diagrams) {
@@ -300,7 +301,7 @@ var addGroupPanel = function(config) {
 		y : posY,
 	});
 	groupPanel.isGroup = true;
-	groupPanel.isShow = config.isShow;
+	groupPanel.isshow = config.isshow;
 
 	groupPanel.diagrams = {};
 	groupPanel.array = new Array();
@@ -343,6 +344,7 @@ var addGroupPanel = function(config) {
 	groupPanel.getXML = function() {
 		var group = document.createElement("group");
 		$(group).attr('name', groupPanel.get('Text')[0].getText());
+		$(group).attr('isshow', groupPanel.isshow);
 
 		var characterImages = groupPanel.get('Image');
 		for (var i = 0; i < characterImages.length; i++) {
@@ -427,7 +429,7 @@ var addGroupPanel = function(config) {
 				groupPanel.add(characterImage);
 			}
 
-			groupPanel.isShow = $('#checkboxShowStartup').is(':checked');
+			groupPanel.isshow = $('#checkboxShowStartup').is(':checked');
 			rectInvi.moveToTop();
 			groupPanel.draw();
 			dialogBoxes.close();
@@ -436,8 +438,9 @@ var addGroupPanel = function(config) {
 			var layer = stage.get('#group-create')[0].getParent();
 			layer.tooltips = new Array();
 		};
+		
 		var dialogBox1 = new DialogBoxWithAddThumbnails(copiedResource);
-
+		$('#checkboxShowStartup').prop('checked', groupPanel.isshow);
 		for (var i = 0; i < groupPanel.getXML().children.length; i++) {
 			var fork = groupPanel.getXML().children[i];
 			dialogBox1.addPanel({
@@ -485,7 +488,7 @@ var addGroupPanel = function(config) {
 				 name : charName,
 				 pathImage : charPanel.path,
 				 pathModel : charPanel.modelPath,
-				 isShow : charPanel.isShow
+				 isshow : charPanel.isshow
 				 });
 				 var newCharPanel = characterPanels.pop();
 				 characterPanels.splice(index + 1, 0, newCharPanel);
@@ -615,7 +618,6 @@ stage.getXML = function() {
 		if (characterPanels[i].isGroup == undefined) {
 			var character = characterPanels[i].getXML();
 			characterlist.appendChild(character);
-
 		}
 	}
 	islay3d.appendChild(characterlist);
@@ -625,11 +627,13 @@ stage.getXML = function() {
 	$(groupMain).attr("name", "main");
 	grouplist.appendChild(groupMain);
 	for (var i = 0; i < characterPanels.length; i++) {
-		console.log(characterPanels[i].isShow);
-		if (!characterPanels[i].isShow) {
+		
+		if(characterPanels[i].isshow == "true"){
+			characterPanels[i].isshow = true;
+		}
+		if (characterPanels[i].isshow != true) {
 			continue;
 		}
-
 		if (characterPanels[i].isGroup == undefined) {
 			var fork = document.createElement("fork");
 			$(fork).attr({
@@ -642,6 +646,7 @@ stage.getXML = function() {
 		} else {
 			var groupNew = document.createElement("group");
 			$(groupNew).attr("name", characterPanels[i].getXML().attributes["name"].value);
+			$(groupNew).attr("isshow", characterPanels[i].getXML().attributes["isshow"].value);
 			for (var j = 0; j < characterPanels[i].getXML().children.length; j++) {
 				var fork = document.createElement("fork");
 				$(fork).attr({
