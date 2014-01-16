@@ -43,7 +43,11 @@ var Player = function() {
 		setCharacters();
 		setGroups();
 		collisionTimeout = true;
+		console.log(player.scene3d.childNodes);
 		setTimeout(function() {
+			player.scene3d.childNodes[0].XML.attributes["name"].value = "fighter1";
+			player.scene3d.childNodes[1].XML.attributes["name"].value = "fighter2";
+			player.scene3d.childNodes[2].XML.attributes["name"].value = "fighter3";
 			player.animate = function() {
 				animation(player.scene3d.childNodes);
 			};
@@ -80,7 +84,6 @@ var Player = function() {
 			player.scene3d.addChild(character);
 			character.isComplex = false;
 			console.log("Model: " + character.XML.attributes["parts"].value);
-
 		}, function() {
 			console.log("player load model error!!");
 		});
@@ -120,7 +123,7 @@ var Player = function() {
 		var forks = group.getElementsByTagName("fork");
 		for (var i = 0; i < forks.length; i++) {
 			var name = forks[i].attributes["character"].value;
-			var XMLData = player.characters[name];
+			var XMLData = player.characters[name].cloneNode(true);
 			var newCharacter = new Character(XMLData);
 			if (!isComplex(newCharacter)) {
 				setPrimitive(newCharacter);
@@ -132,7 +135,6 @@ var Player = function() {
 
 	var setGroups = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");
-		console.log(player.groups);
 		for(var g in player.groups){
 			player.createGroup(player.groups[g]);
 		}

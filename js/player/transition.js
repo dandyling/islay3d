@@ -27,11 +27,11 @@ transition = function(player, character) {
 		if (hashLength(character.XML.STATEDIAGRAMS[a].STATES) == 0) {
 			continue;
 		}
-
 		// Initialize every state diagrams if not already initialized
 		if (!character.XML.STATEDIAGRAMS[a].init) {
 			character.XML.STATEDIAGRAMS[a].current = Hash.first(character.XML.STATEDIAGRAMS[a].STATES);
 			character.XML.STATEDIAGRAMS[a].init = true;
+			
 		}
 
 		character.executeActionType1(character.XML.STATEDIAGRAMS[a].current);

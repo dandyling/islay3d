@@ -42,6 +42,14 @@ var INPUTBUTTONS = {
 	'z' : 'z',
 };
 
+function deepClone(obj, CloneObj) {
+    CloneObj.clear();
+    jQuery.each(obj, function(i, val) {
+        var newObject = jQuery.extend(true, {}, val);
+        CloneObj[i] = newObject;
+    });
+}
+
 var Character = function(xmlData) {
 	var character = new Sprite3D();
 
@@ -51,7 +59,6 @@ var Character = function(xmlData) {
 	character.touched;
 
 	character.createStateDiagrams = function() {
-		console.log(character.XML);
 		character.XML.STATEDIAGRAMS = new Hash(character.XML.getElementsByTagName("statediagram"), "name");
 		var stateDiagrams = character.XML.STATEDIAGRAMS;
 		for (var a in stateDiagrams) {
@@ -127,6 +134,7 @@ var Character = function(xmlData) {
 
 	character.__construct = function() {
 		character.XML = xmlData;
+		//deepClone(xmlData, character.XML);
 		character.message = "";
 		character.touched = false;
 		//console.log(character.XML.attributes["rotation"].value);
