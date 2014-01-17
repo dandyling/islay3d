@@ -597,16 +597,18 @@ var DialogActionToolbarGroup = function(toolbar) {
 		});
 		return xml;
 	};
-
+	
+	var groups = $(stage.getXML()).find('group');
+	groups.splice(0, 1);	//remove main group
+	var groupList = {};
+	for(var i=0; i<groups.length; i++){
+		groupList[i] = groups[i].attributes["name"].value;
+	}
 	var selectBoxCharacter = new SelectBox({
 		name : 'selectbox',
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
-		optionList : {
-			main : "main",
-			group1 : "test1",
-			group2 : "test2"
-		},
+		optionList : groupList,
 		value : (toolbar.state.xml2.attributes["option"] != undefined) && toolbar.state.xml2.attributes["option"].value == "gfork" ? dialog.getAttributeString("gfork", "group") : "main"
 	});
 	selectBoxCharacter.onchange = function() {
