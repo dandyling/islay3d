@@ -59,10 +59,10 @@ executeActionType1 = function(character, state) {
 };
 
 executeActionType2 = function(player, character, state) {
-	if (state.attributes["option"] == undefined) {
+	if (!state.hasAttribute("option")) {
 		return;
 	}
-
+	
 	var option = state.attributes["option"].value;
 	if (option == "upcast") {
 		var msg = state.attributes["message"].value;
@@ -72,6 +72,6 @@ executeActionType2 = function(player, character, state) {
 		character.sendChildMessage(character, msg);
 	} else if (option == "gfork") {
 		var group = state.attributes["group"].value;
-		player.onload.createGroup(player.groups[group]);
+		player.createGroup(player.groups[group]);
 	}
 }; 
