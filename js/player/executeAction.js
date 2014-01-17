@@ -1,3 +1,5 @@
+var gforkTimeout = false;
+
 executeActionType1 = function(character, state) {
 	if (state.attributes["action"].value == "move" || state.attributes["action"].value == "move-world") {
 		var tZ = parseFloat(state.attributes["front"].value);
@@ -71,7 +73,14 @@ executeActionType2 = function(player, character, state) {
 		var msg = state.attributes["message"].value;
 		character.sendChildMessage(character, msg);
 	} else if (option == "gfork") {
+		if(gforkTimeout == true){
+			return;
+		}
 		var group = state.attributes["group"].value;
 		player.createGroup(player.groups[group]);
+		gforkTimeout = true;
+		setTimeout(function(){
+			gforkTimeout = false;
+		}, 400);
 	}
 }; 
