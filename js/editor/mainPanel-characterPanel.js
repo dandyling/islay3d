@@ -436,7 +436,7 @@ var addGroupPanel = function(config) {
 				});
 				groupPanel.add(characterImage);
 			}
-
+			groupPanel.get('Text')[0].setText(this.getParent().textField.value);
 			groupPanel.isshow = $('#checkboxShowStartup').is(':checked');
 			rectInvi.moveToTop();
 			groupPanel.draw();
