@@ -18,7 +18,7 @@ var DialogArrowToolbarKeyboard = function(toolbar) {
 		fill : 'black',
 		fontStyle : 'normal',
 		fontSize : 14,
-		text : "キー: ",
+		text : STRINGS["diagramEditor48"][lang],
 	});
 	dialog.add(simpleText);
 
@@ -127,7 +127,7 @@ var DialogArrowToolbarMouse = function(toolbar) {
 		fill : 'black',
 		fontStyle : 'normal',
 		fontSize : 14,
-		text : "ボタン",
+		text : STRINGS["diagramEditor49"][lang],
 	});
 	dialog.add(simpleText);
 
@@ -147,9 +147,9 @@ var DialogArrowToolbarMouse = function(toolbar) {
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
 		optionList : {
-			left : "左クリック",
+			left : STRINGS["diagramEditor50"][lang],
 		},
-		value : dialog.getAttributeString("click", "button", "左クリック"),
+		value : dialog.getAttributeString("click", "button", STRINGS["diagramEditor50"][lang]),
 	});
 	selectBox.onchange = function() {
 		//console.log(selectBox.value);
@@ -179,7 +179,7 @@ var DialogArrowToolbarCollide = function(toolbar) {
 		fill : 'black',
 		fontStyle : 'normal',
 		fontSize : 14,
-		text : "何を衝突: ",
+		text : STRINGS["diagramEditor51"][lang],
 	});
 	dialog.add(simpleText);
 
@@ -195,16 +195,16 @@ var DialogArrowToolbarCollide = function(toolbar) {
 	};
 
 	var WALLLIST = new Object();
-	WALLLIST["all"] = "@anywall";
-	WALLLIST["east wall"] = "@eastwall";
-	WALLLIST["south wall"] = "@southwall";
-	WALLLIST["west wall"] = "@westwall";
-	WALLLIST["north wall"] = "@northwall";
-	WALLLIST["ceiling"] = "@roofwall";
-	WALLLIST["floor"] = "@floorwall";
+	WALLLIST[STRINGS["diagramEditor52"][lang]] = "@anywall";
+	WALLLIST[STRINGS["diagramEditor53"][lang]] = "@eastwall";
+	WALLLIST[STRINGS["diagramEditor54"][lang]] = "@southwall";
+	WALLLIST[STRINGS["diagramEditor55"][lang]] = "@westwall";
+	WALLLIST[STRINGS["diagramEditor56"][lang]] = "@northwall";
+	WALLLIST[STRINGS["diagramEditor57"][lang]] = "@roofwall";
+	WALLLIST[STRINGS["diagramEditor58"][lang]] = "@floorwall";
 
 	var CHARACTERLIST = new Object();
-	CHARACTERLIST["all"] = "@anychara";
+	CHARACTERLIST[STRINGS["diagramEditor59"][lang]] = "@anychara";
 	CHARACTERLIST["robot"] = "robot";
 	CHARACTERLIST["car"] = "car";
 	CHARACTERLIST["car2"] = "car2";
@@ -228,23 +228,23 @@ var DialogArrowToolbarCollide = function(toolbar) {
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
 		optionList : {
-			all : "all",
-			wall : "wall",
-			character : "character"
+			all : STRINGS["diagramEditor60"][lang],
+			wall : STRINGS["diagramEditor61"][lang],
+			character : STRINGS["diagramEditor62"][lang]
 		},
 		value : ( function() {
-				var xml = dialog.getAttributeString("bump", "bump", "all");
+				var xml = dialog.getAttributeString("bump", "bump", STRINGS["diagramEditor60"][lang]);
 				for (var key in WALLLIST) {
 					if (WALLLIST[key] == xml) {
-						return "wall";
+						return STRINGS["diagramEditor61"][lang];
 					}
 				}
 				for (var key in CHARACTERLIST) {
 					if (CHARACTERLIST[key] == xml) {
-						return "character";
+						return STRINGS["diagramEditor62"][lang];
 					}
 				}
-				return "all";
+				return STRINGS["diagramEditor60"][lang];
 			}()),
 	});
 	selectBox.onchange = function() {
@@ -259,16 +259,16 @@ var DialogArrowToolbarCollide = function(toolbar) {
 				left : simpleText.getX() + simpleText.getWidth(),
 				top : simpleText.getY() + 20,
 				optionList : {
-					wallall : "all",
-					wall1 : "east wall",
-					wall2 : "south wall",
-					wall3 : "west wall",
-					wall4 : "north wall",
-					wall5 : "ceiling",
-					wall6 : "floor"
+					wallall : STRINGS["diagramEditor52"][lang],
+					wall1 : STRINGS["diagramEditor53"][lang],
+					wall2 : STRINGS["diagramEditor54"][lang],
+					wall3 : STRINGS["diagramEditor55"][lang],
+					wall4 : STRINGS["diagramEditor56"][lang],
+					wall5 : STRINGS["diagramEditor57"][lang],
+					wall6 : STRINGS["diagramEditor58"][lang],
 				},
 				value : ( function() {
-						var xml = dialog.getAttributeString("bump", "bump", "all");
+						var xml = dialog.getAttributeString("bump", "bump", STRINGS["diagramEditor52"][lang]);
 						for (var key in WALLLIST) {
 							if (WALLLIST[key] == xml) {
 								return key;
@@ -280,19 +280,19 @@ var DialogArrowToolbarCollide = function(toolbar) {
 			selectBoxWall.onchange = function() {
 				console.log(selectBoxWall.value);
 			};
-		} else if (selectBox.value == "character") {
+		} else if (selectBox.value == STRINGS["diagramEditor62"][lang]) {
 			var selectBoxChar = new SelectBox({
 				name : 'selectbox',
 				left : simpleText.getX() + simpleText.getWidth(),
 				top : simpleText.getY() + 20,
 				optionList : {
-					charall : "all",
+					charall : STRINGS["diagramEditor59"][lang],
 					char1 : "robot",
 					char2 : "car",
 					char3 : "car2"
 				},
 				value : ( function() {
-						var xml = dialog.getAttributeString("bump", "bump", "all");
+						var xml = dialog.getAttributeString("bump", "bump", STRINGS["diagramEditor60"][lang]);
 						for (var key in CHARACTERLIST) {
 							if (CHARACTERLIST[key] == xml) {
 								return key;
@@ -330,7 +330,7 @@ var DialogArrowToolbarMessage = function(toolbar) {
 		fill : 'black',
 		fontStyle : 'normal',
 		fontSize : 9,
-		text : "おしらせ",
+		text : STRINGS["diagramEditor63"][lang],
 	});
 	dialog.add(simpleText);
 
@@ -346,16 +346,16 @@ var DialogArrowToolbarMessage = function(toolbar) {
 	};
 
 	var optionList = {
-		message1 : "いまだ！",
-		message2 : "気をつけて!",
-		message3 : "まだだよ",
-		message4 : "はじまるよ",
-		message5 : "着いたよ",
-		message6 : "花が咲いたよ",
-		message7 : "晴れてきたよ",
-		message8 : "雨がふってきたよ",
-		message9 : "雪がふってきたよ",
-		message10 : "ボスが来たよ!",
+		message1 : STRINGS["diagramEditor24"][lang],
+		message2 : STRINGS["diagramEditor25"][lang],
+		message3 : STRINGS["diagramEditor26"][lang],
+		message4 : STRINGS["diagramEditor27"][lang],
+		message5 : STRINGS["diagramEditor28"][lang],
+		message6 : STRINGS["diagramEditor29"][lang],
+		message7 : STRINGS["diagramEditor30"][lang],
+		message8 : STRINGS["diagramEditor31"][lang],
+		message9 : STRINGS["diagramEditor31"][lang],
+		message10 : STRINGS["diagramEditor33"][lang],
 	};
 	for (var m in customMessages) {
 		optionList[m] = customMessages[m];
@@ -366,7 +366,7 @@ var DialogArrowToolbarMessage = function(toolbar) {
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
 		optionList : optionList,
-		value : dialog.getAttributeString("event", "type", "いまだ！"),
+		value : dialog.getAttributeString("event", "type", STRINGS["diagramEditor24"][lang]),
 	});
 
 	selectBox.onchange = function() {
@@ -392,7 +392,7 @@ var DialogArrowToolbarPercent = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		x : 15,
 		y : 20,
-		text : "確率:",
+		text : STRINGS["diagramEditor64"][lang],
 		fontFamily : 'sans-serif',
 		fill : 'black',
 		fontStyle : 'normal',
@@ -434,7 +434,7 @@ var DialogArrowToolbarRepeat = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		x : 15,
 		y : 20,
-		text : "繰り返す回数:",
+		text : STRINGS["diagramEditor65"][lang],
 		fontFamily : 'sans-serif',
 		fill : 'black',
 		fontStyle : 'normal',

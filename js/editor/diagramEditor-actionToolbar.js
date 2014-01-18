@@ -50,7 +50,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionMove',
 		name : 'button',
 		addText : true,
-		text : 'うごかす',
+		text : STRINGS["diagramEditor1"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -73,7 +73,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionJump',
 		name : 'button',
 		addText : true,
-		text : 'ジャンプ',
+		text : STRINGS["diagramEditor2"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -102,7 +102,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionReset',
 		name : 'button',
 		addText : true,
-		text : 'リセット',
+		text : STRINGS["diagramEditor3"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -136,7 +136,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionMessage',
 		name : 'button',
 		addText : true,
-		text : 'おしらせ',
+		text : STRINGS["diagramEditor4"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -159,7 +159,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionFork',
 		name : 'button',
 		addText : true,
-		text : '親になる',
+		text : STRINGS["diagramEditor5"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -182,7 +182,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionChange',
 		name : 'button',
 		addText : true,
-		text : '変わる',
+		text : STRINGS["diagramEditor6"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -205,7 +205,7 @@ var ActionToolbar = function(state) {
 		id : 'buttonActionTransform',
 		name : 'button',
 		addText : true,
-		text : 'へんかく',
+		text : STRINGS["diagramEditor7"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);

@@ -91,12 +91,282 @@ var STRINGS = {
 		en : 'Finish',
 		jp : '終了'
 	},
-	/*avatar22 : {
+	diagramEditor1 : {
+		en : 'Move',
+		jp : 'うごかす'
+	},
+	diagramEditor2 : {
+		en : 'Jump',
+		jp : 'ジャンプ'
+	},
+	diagramEditor3 : {
+		en : 'Reset',
+		jp : 'リセット'
+	},
+	diagramEditor4 : {
+		en : 'Message',
+		jp : 'おしらせ'
+	},
+	diagramEditor5 : {
+		en : 'Fork',
+		jp : '親になる'
+	},
+	diagramEditor6 : {
+		en : 'Change',
+		jp : '変わる'
+	},
+	diagramEditor7 : {
+		en : 'Transform',
+		jp : 'へんかく'
+	},
+	diagramEditor8 : {
+		en : "Move",
+		jp : "うごかす"
+	},
+	diagramEditor9 : {
+		en : "Rotate",
+		jp : "かいてん"
+	},
+	diagramEditor10 : {
+		en : "Move according to upper coordinate system",
+		jp : "上位のざひょうけいにしたがってうごく"
+	},
+	diagramEditor11 : {
+		en : "Jump to: ",
+		jp : "ジャンプ: "
+	},
+	diagramEditor12 : {
+		en : "軸:",
+		jp : "Enable Axis:"
+	},
+	diagramEditor13 : {
+		en : "specified position",
+		jp : "決まった場所にジャンプ"
+	},
+	diagramEditor14 : {
+		en : "random position",
+		jp : "どこかにジャンプ"
+	},
+	diagramEditor15 : {
+		en : "Reset",
+		jp : "リセット"
+	},
+	diagramEditor16 : {
+		en : "Movement",
+		jp : "移動"
+	},
+	diagramEditor17 : {
+		en : "Rotation",
+		jp : "回転"
+	},
+	diagramEditor18 : {
+		en : "Send to: ",
+		jp : "相手: "
+	},
+	diagramEditor19 : {
+		en : "the ",
+		jp : "に "
+	},
+	diagramEditor20 : {
+		en : "Message:",
+		jp : "送るメッセージ:"
+	},
+	diagramEditor21 : {
+		en : "All characters",
+		jp : "皆におしらせ"
+	},
+	diagramEditor22 : {
+		en : "Upper level characters (Complex character)",
+		jp : "上位キャラクターにおしらせ"
+	},
+	diagramEditor23 : {
+		en : "Lower level characters (Complex character)",
+		jp : "下位キャラクターにおしらせ"
+	},
+	diagramEditor24 : {
+		en : "It's now!",
+		jp : "いまだ！"
+	},
+	diagramEditor25 : {
+		en : "Careful!",
+		jp : "気をつけて!"
+	},
+	diagramEditor26 : {
+		en : "Wait!",
+		jp : "まだだよ"
+	},
+	diagramEditor27 : {
+		en : "It's starting!",
+		jp : "はじまるよ"
+	},
+	diagramEditor28 : {
+		en : "It's here!",
+		jp : "着いたよ"
+	},
+	diagramEditor29 : {
+		en : "It's spring",
+		jp : "花が咲いたよ"
+	},
+	diagramEditor30 : {
+		en : "It's sunny",
+		jp : "晴れてきたよ"
+	},
+	diagramEditor31 : {
+		en : "It's raining",
+		jp : "雨がふってきたよ"
+	},
+	diagramEditor32 : {
+		en : "It's snowing",
+		jp : "雪がふってきたよ"
+	},
+	diagramEditor33 : {
+		en : "Here comes the boss!",
+		jp : "ボスが来たよ!"
+	},
+	diagramEditor34 : {
+		en : "Custom..",
+		jp : "ほかのおしらせ.."
+	},
+	diagramEditor35 : {
+		en : "Enter a message here",
+		jp : "おしらせを書いてください"
+	},
+	diagramEditor36 : {
+		en : "Become the parent of the group ",
+		jp : "グループの親になる"
+	},
+	diagramEditor37 : {
+		en : "Change into: ",
+		jp : "変わる"
+	},
+	diagramEditor38 : {
+		en : "Appear",
+		jp : "現れる"
+	},
+	diagramEditor39 : {
+		en : "Hide",
+		jp : "隠れる"
+	},
+	diagramEditor40 : {
+		en : "Disappear",
+		jp : "いなくなる"
+	},
+	diagramEditor41 : {
+		en : "The End",
+		jp : "アニメーションを終了させる"
+	},
+	diagramEditor42 : {
+		en : 'Key',
+		jp : 'キーボード'
+	},
+	diagramEditor43 : {
+		en : 'Mouse',
+		jp : 'クリック'
+	},
+	diagramEditor44 : {
+		en : 'Collide',
+		jp : '衝突'
+	},
+	diagramEditor45 : {
+		en : 'Message',
+		jp : 'おしらせ'
+	},
+	diagramEditor46 : {
+		en : 'Percent',
+		jp : '確率'
+	},
+	diagramEditor47 : {
+		en : 'Repeat',
+		jp : '繰り返し'
+	},
+	diagramEditor48 : {
+		en : "Key: ",
+		jp : "キー: "
+	},
+	diagramEditor49 : {
+		en : "Button",
+		jp : "ボタン"
+	},
+	diagramEditor50 : {
+		en : "left",
+		jp : "左クリック"
+	},
+	diagramEditor51 : {
+		en : "Object: ",
+		jp : "何を衝突: "
+	},
+	diagramEditor52 : {
+		en : "all",
+		jp : "すべて"
+	},
+	diagramEditor53 : {
+		en : "east wall",
+		jp : "東の壁"
+	},
+	diagramEditor54 : {
+		en : "south wall",
+		jp : "南の壁"
+	},
+	diagramEditor55 : {
+		en : "west wall",
+		jp : "西の壁"
+	},
+	diagramEditor56 : {
+		en : "north wall",
+		jp : "北の壁"
+	},
+	diagramEditor57 : {
+		en : "ceiling",
+		jp : "天井"
+	},
+	diagramEditor58 : {
+		en : "floor",
+		jp : "床"
+	},
+	diagramEditor59 : {
+		en : "all",
+		jp : "すべて"
+	},
+	diagramEditor60 : {
+		en : "all",
+		jp : "すべて"
+	},
+	diagramEditor61 : {
+		en : "wall",
+		jp : "壁"
+	},
+	diagramEditor62 : {
+		en : "character",
+		jp : "キャラクター"
+	},
+	diagramEditor63 : {
+		en : "Message:",
+		jp : "おしらせ"
+	},
+	diagramEditor64 : {
+		en : "Percentage:",
+		jp : "確率:"
+	},
+	diagramEditor65 : {
+		en : "Repeat:",
+		jp : "繰り返す回数:"
+	},
+	diagramEditor66 : {
+		en : "State 0",
+		jp : "状態　0"
+	},
+	diagramEditor67 : {
+		en : "You cannot delete the main state!",
+		jp : "メーン状態を消せない。"
+	},
+	/*diagramEditor68 : {
 		en : ,
 		jp : 
-	},STRINGS["avatar22"][lang]
-	*/
-	
+	},STRINGS["diagramEditor68"][lang]
+	diagramEditor69 : {
+		en : ,
+		jp : 
+	},STRINGS["diagramEditor69"][lang]*/
 };
 
 

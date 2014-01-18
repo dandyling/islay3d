@@ -50,7 +50,7 @@ var ArrowToolbar = function(arrow) {
 		id : 'buttonArrowKeyboard',
 		name : 'button',
 		addText : true,
-		text : 'キーボード',
+		text : STRINGS["diagramEditor42"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -73,7 +73,7 @@ var ArrowToolbar = function(arrow) {
 		id : 'buttonArrowMouse',
 		name : 'button',
 		addText : true,
-		text : 'クリック',
+		text : STRINGS["diagramEditor43"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -96,7 +96,7 @@ var ArrowToolbar = function(arrow) {
 		id : 'buttonArrowExplosion',
 		name : 'button',
 		addText : true,
-		text : '衝突',
+		text : STRINGS["diagramEditor44"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -119,7 +119,7 @@ var ArrowToolbar = function(arrow) {
 		id : 'buttonActionMessage',
 		name : 'button',
 		addText : true,
-		text : 'おしらせ',
+		text : STRINGS["diagramEditor45"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -142,7 +142,7 @@ var ArrowToolbar = function(arrow) {
 		id : 'buttonArrowPercent',
 		name : 'button',
 		addText : true,
-		text : '確率',
+		text : STRINGS["diagramEditor46"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);
@@ -165,7 +165,7 @@ var ArrowToolbar = function(arrow) {
 		id : 'buttonActionChange',
 		name : 'button',
 		addText : true,
-		text : '繰り返し',
+		text : STRINGS["diagramEditor47"][lang],
 		effect3D : true,
 		onClick : function() {
 			toolbar.toggle(this);

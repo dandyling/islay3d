@@ -42,7 +42,7 @@ var State23 = function(x, y, id, layer) {
 	state.add(simpleText);
 	state.simpleText = simpleText;
 
-	if(id == "状態　0"){
+	if(id == STRINGS["diagramEditor66"][lang]){
 		state.oval.setStrokeWidth(3);
 		state.isMain = true;
 	}
@@ -203,7 +203,7 @@ var State23 = function(x, y, id, layer) {
 		dialogBoxes.close();
 		if (radio['buttonCross'].buttonDown) {
 			if(state.isMain != undefined && state.isMain == true) {
-				alert("You cannot delete the main state!");
+				alert(STRINGS["diagramEditor67"][lang]);
 			} else {
 				state.deleteSelf();
 				delete layer.isSelected;

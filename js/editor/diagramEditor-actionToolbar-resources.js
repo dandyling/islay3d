@@ -20,7 +20,7 @@ var DialogActionToolbarMove = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		y : 38,
 		width : 70,
-		text : "うごかす",
+		text : STRINGS["diagramEditor8"][lang],
 		fontSize : 16,
 	});
 	simpleText.setAttrs(simpleTextConfig);
@@ -28,7 +28,7 @@ var DialogActionToolbarMove = function(toolbar) {
 	var simpleText2 = new Kinetic.Text({
 		y : 78,
 		width : 70,
-		text : "かいてん",
+		text : STRINGS["diagramEditor9"][lang],
 		fontSize : 16,
 	});
 	simpleText2.setAttrs(simpleTextConfig);
@@ -105,7 +105,7 @@ var DialogActionToolbarMove = function(toolbar) {
 	var simpleText3 = new Kinetic.Text({
 		x : 80,
 		y : 108,
-		text : "上位のざひょうけいにしたがってうごく",
+		text : STRINGS["diagramEditor10"][lang],
 		fontStyle : 'normal',
 		fontSize : 12,
 		fontFamily : 'sans-serif',
@@ -138,7 +138,7 @@ var DialogActionToolbarJump = function(toolbar) {
 		x : 90,
 		y : dialog.rect.getY() + 18,
 		width : 70,
-		text : "ジャンプ: ",
+		text : STRINGS["diagramEditor11"][lang],
 		fontSize : 14,
 		fontFamily : 'sans-serif',
 		align : 'right',
@@ -148,7 +148,7 @@ var DialogActionToolbarJump = function(toolbar) {
 	var simpleText2 = new Kinetic.Text({
 		x : 20,
 		y : 61,
-		text : "軸:",
+		text : STRINGS["diagramEditor12"][lang],
 		width : 100,
 		fontFamily : 'sans-serif',
 		align : 'left',
@@ -232,13 +232,13 @@ var DialogActionToolbarJump = function(toolbar) {
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
 		optionList : {
-			specific : "決まった場所にジャンプ",
-			random : "どこかにジャンプ"
+			specific : STRINGS["diagramEditor13"][lang],
+			random : STRINGS["diagramEditor14"][lang]
 		}
 	});
-	selectBox.value = "決まった場所にジャンプ";
+	selectBox.value = STRINGS["diagramEditor13"][lang];
 	selectBox.onchange = function() {
-		if (selectBox.value == "どこかにジャンプ") {
+		if (selectBox.value == STRINGS["diagramEditor14"][lang]) {
 			dialogBoxes.closeSmallDialogs();
 			toolbar.dialog = new DialogActionToolbarJumpRandom(toolbar);
 			toolbar.setAutoPosition(toolbar.currentState.getX(), toolbar.currentState.getY());
@@ -268,7 +268,7 @@ var DialogActionToolbarJumpRandom = function(toolbar) {
 		x : 90,
 		y : dialog.rect.getY() + 18,
 		width : 70,
-		text : "ジャンプ: ",
+		text : STRINGS["diagramEditor11"][lang],
 		fontSize : 14,
 		fontFamily : 'sans-serif',
 		align : 'right',
@@ -278,7 +278,7 @@ var DialogActionToolbarJumpRandom = function(toolbar) {
 	var simpleText2 = new Kinetic.Text({
 		x : 20,
 		y : 61,
-		text : "軸:",
+		text : STRINGS["diagramEditor12"][lang],
 		width : 100,
 		fontFamily : 'sans-serif',
 		align : 'left',
@@ -343,13 +343,13 @@ var DialogActionToolbarJumpRandom = function(toolbar) {
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
 		optionList : {
-			specific : "決まった場所にジャンプ",
-			random : "どこかにジャンプ"
+			specific : STRINGS["diagramEditor13"][lang],
+			random : STRINGS["diagramEditor14"][lang]
 		},
 	});
-	selectBox.value = "どこかにジャンプ";
+	selectBox.value = STRINGS["diagramEditor14"][lang];
 	selectBox.onchange = function() {
-		if (selectBox.value == "決まった場所にジャンプ") {
+		if (selectBox.value == STRINGS["diagramEditor13"][lang]) {
 			dialogBoxes.closeSmallDialogs();
 			toolbar.dialog = new DialogActionToolbarJump(toolbar);
 			toolbar.setAutoPosition(toolbar.currentState.getX(), toolbar.currentState.getY());
@@ -376,7 +376,7 @@ var DialogActionToolbarReset = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		x : dialog.rect.getWidth() / 2,
 		y : 38,
-		text : "リセット",
+		text : STRINGS["diagramEditor15"][lang],
 		fontSize : 16,
 		fontFamily : 'sans-serif',
 		fontStyle : 'bold',
@@ -393,13 +393,13 @@ var DialogActionToolbarReset = function(toolbar) {
 
 	var labelX = new Kinetic.Text({
 		x : 110,
-		text : "移動",
+		text : STRINGS["diagramEditor16"][lang],
 	});
 	labelX.setAttrs(labelConfig);
 
 	var labelY = new Kinetic.Text({
 		x : 110 + 110,
-		text : "回転",
+		text : STRINGS["diagramEditor17"][lang],
 	});
 	labelY.setAttrs(labelConfig);
 
@@ -450,21 +450,21 @@ var DialogActionToolbarMessage = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		x : 15,
 		y : 38,
-		text : "相手: ",
+		text : STRINGS["diagramEditor18"][lang],
 	});
 	simpleText.setAttrs(simpleTextConfig);
 
 	var simpleText2 = new Kinetic.Text({
 		x : 30,
 		y : 68,
-		text : "に ",
+		text : STRINGS["diagramEditor19"][lang],
 	});
 	simpleText2.setAttrs(simpleTextConfig);
 
 	var simpleText3 = new Kinetic.Text({
 		x : simpleText2.getX() + simpleText2.getWidth(),
 		y : simpleText2.getY(),
-		text : "送るメッセージ:",
+		text : STRINGS["diagramEditor20"][lang],
 	});
 	simpleTextConfig.fontStyle = "bold";
 	simpleText3.setAttrs(simpleTextConfig);
@@ -488,18 +488,18 @@ var DialogActionToolbarMessage = function(toolbar) {
 	};
 
 	var MESSAGETYPE = new Object();
-	MESSAGETYPE["皆におしらせ"] = "broadcast";
-	MESSAGETYPE["上位キャラクターにおしらせ"] = "upcast";
-	MESSAGETYPE["下位キャラクターにおしらせ"] = "downcast";
+	MESSAGETYPE[STRINGS["diagramEditor21"][lang]] = "broadcast";
+	MESSAGETYPE[STRINGS["diagramEditor22"][lang]] = "upcast";
+	MESSAGETYPE[STRINGS["diagramEditor23"][lang]] = "downcast";
 
 	var selectBoxCharacter = new SelectBox({
 		name : 'selectbox',
 		left : simpleText.getX() + simpleText.getWidth(),
 		top : simpleText.getY() - 9,
 		optionList : {
-			all : "皆におしらせ",
-			upper : "上位キャラクターにおしらせ",
-			lower : "下位キャラクターにおしらせ"
+			all : STRINGS["diagramEditor21"][lang],
+			upper : STRINGS["diagramEditor22"][lang],
+			lower : STRINGS["diagramEditor23"][lang]
 		},
 		value : (function() {
 			for (var key in MESSAGETYPE) {
@@ -510,22 +510,22 @@ var DialogActionToolbarMessage = function(toolbar) {
 					return key;
 				}
 			}
-			return "皆におしらせ";
+			return STRINGS["diagramEditor21"][lang];
 		})()
 	});
 
 	var optionList = new Object();
-	optionList["message1"] = "いまだ！";
-	optionList["message2"] = "気をつけて!";
-	optionList["message3"] = "まだだよ";
-	optionList["message4"] = "はじまるよ";
-	optionList["message5"] = "着いたよ";
-	optionList["message6"] = "花が咲いたよ";
-	optionList["message7"] = "晴れてきたよ";
-	optionList["message8"] = "雨がふってきたよ";
-	optionList["message9"] = "雪がふってきたよ";
-	optionList["message10"] = "ボスが来たよ!";
-	optionList["messageCustom"] = "ほかのおしらせ..";
+	optionList["message1"] = STRINGS["diagramEditor24"][lang];
+	optionList["message2"] = STRINGS["diagramEditor25"][lang];
+	optionList["message3"] = STRINGS["diagramEditor26"][lang];
+	optionList["message4"] = STRINGS["diagramEditor27"][lang];
+	optionList["message5"] = STRINGS["diagramEditor28"][lang];
+	optionList["message6"] = STRINGS["diagramEditor29"][lang];
+	optionList["message7"] = STRINGS["diagramEditor30"][lang];
+	optionList["message8"] = STRINGS["diagramEditor31"][lang];
+	optionList["message9"] = STRINGS["diagramEditor32"][lang];
+	optionList["message10"] = STRINGS["diagramEditor33"][lang];
+	optionList["messageCustom"] = STRINGS["diagramEditor34"][lang];
 	var selectBoxMessage = new SelectBox({
 		name : 'selectbox',
 		left : simpleText3.getX() + simpleText3.getWidth(),
@@ -543,18 +543,18 @@ var DialogActionToolbarMessage = function(toolbar) {
 							return message;
 						}
 					}
-					var textField = new TextField("inputTextCustomMessage", "おしらせを書いてください", simpleText3.getX() + simpleText3.getWidth() - 10, simpleText3.getY() - 9 + 30);
+					var textField = new TextField("inputTextCustomMessage", STRINGS["diagramEditor35"][lang], simpleText3.getX() + simpleText3.getWidth() - 10, simpleText3.getY() - 9 + 30);
 					textField.value = message;
-					return "ほかのおしらせ..";
+					return STRINGS["diagramEditor34"][lang];
 				}
 			}
-			return "いまだ！";
+			return STRINGS["diagramEditor24"][lang];
 		})()
 	});
 	selectBoxMessage.onchange = function() {
 		console.log(selectBoxMessage.value);
-		if (selectBoxMessage.value == "Custom..") {
-			var textField = new TextField("inputTextCustomMessage", "おしらせを書いてください", parseInt(selectBoxMessage.style.left) - 10, parseInt(selectBoxMessage.style.top) + 30);
+		if (selectBoxMessage.value == STRINGS["diagramEditor34"][lang]) {
+			var textField = new TextField("inputTextCustomMessage", STRINGS["diagramEditor35"][lang], parseInt(selectBoxMessage.style.left) - 10, parseInt(selectBoxMessage.style.top) + 30);
 		} else {
 			if (document.getElementById("inputTextCustomMessage") != undefined) {
 				inputDivParent.removeChild(document.getElementById("inputTextCustomMessage"));
@@ -581,7 +581,7 @@ var DialogActionToolbarGroup = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		x : 50,
 		y : dialog.rect.getY() + dialog.rect.getHeight() / 2 - 10,
-		text : "グループの親になる",
+		text : STRINGS["diagramEditor36"][lang],
 		fontFamily : 'sans-serif',
 		fill : 'black',
 		fontStyle : 'normal',
@@ -635,7 +635,7 @@ var DialogActionToolbarCharacter = function(toolbar) {
 	var simpleText = new Kinetic.Text({
 		x : 80,
 		y : dialog.rect.getY() + 15,
-		text : "変わる",
+		text : STRINGS["diagramEditor37"][lang],
 		fontFamily : 'sans-serif',
 		fill : 'black',
 		fontStyle : 'normal',
@@ -734,12 +734,12 @@ var DialogActionToolbarTransform = function(toolbar) {
 	};
 
 	var OPTIONTYPE = new Object();
-	OPTIONTYPE["現れる"] = "show";
-	OPTIONTYPE["隠れる"] = "hide";
-	OPTIONTYPE["いなくなる"] = "exit";
-	OPTIONTYPE["アニメーションを終了させる"] = "finish";
+	OPTIONTYPE[STRINGS["diagramEditor38"][lang]] = "show";
+	OPTIONTYPE[STRINGS["diagramEditor39"][lang]] = "hide";
+	OPTIONTYPE[STRINGS["diagramEditor40"][lang]] = "exit";
+	OPTIONTYPE[STRINGS["diagramEditor41"][lang]] = "finish";
 
-	var buttonRadio = new ButtonRadio('buttonRadio', 100, 100, ["現れる", "隠れる", "いなくなる", "アニメーションを終了させる"], getDefaultButton());
+	var buttonRadio = new ButtonRadio('buttonRadio', 100, 100, [STRINGS["diagramEditor38"][lang], STRINGS["diagramEditor39"][lang], STRINGS["diagramEditor40"][lang], STRINGS["diagramEditor41"][lang]], getDefaultButton());
 
 	buttonRadio.getClicked = function() {
 		var childButtons = buttonRadio.getElementsByTagName("input");
