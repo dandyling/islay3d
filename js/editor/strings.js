@@ -359,14 +359,122 @@ var STRINGS = {
 		en : "You cannot delete the main state!",
 		jp : "メーン状態を消せない。"
 	},
-	/*diagramEditor68 : {
+	dialogBox1 : {
+		en : "Show at the start of game",
+		jp : "ゲームスタートに表示する"
+	},
+	dialogBox2 : {
+		en : "Group 1",
+		jp : "グループ1"
+	},
+	dialogBox3 : {
+		en : "Group Name",
+		jp : "グループ名"
+	},
+	dialogBox4 : {
+		en : "Please choose a dae file",
+		jp : 'daeファイルを選んでください'
+	},
+	dialogBox5 : {
+		en : "Please choose a file smaller than 20 MB",
+		jp : '20 MBより小さいファイルを選んでください'
+	},
+	dialogBox6 : {
+		en : 'Choose a character：',
+		jp : 'キャラクターをえらんでください：'
+	},
+	dialogBox7 : {
+		en : 'Import Model',
+		jp : 'モデルをとりこむ'
+	},
+	dialogBox8 : {
+		en : "Please login",
+		jp : 'ログインしてください'
+	},
+	dialogBox9 : {
+		en : 'Cancel',
+		jp : 'キャンセル'
+	},
+	dialogBox10 : {
+		en : 'Create a group',
+		jp : 'グループ作成'
+	},
+	dialogBox11 : {
+		en : 'Create',
+		jp : 'つくる'
+	},
+	dialogBox12 : {
+		en : " exist.  Please input a new name.",
+		jp : "が存在します。新名を入力してください。"
+	},
+	dialogBox13 : {
+		en : 'Cancel',
+		jp : 'キャンセル'
+	},
+	dialogBox14 : {
+		en : 'Edit group',
+		jp : 'グループ編集'
+	},
+	dialogBox15 : {
+		en : 'Save changes',
+		jp : 'ほぞん'
+	},
+	dialogBox16 : {
+		en : 'Cancel',
+		jp 'キャンセル': 
+	},
+	dialogBox17 : {
+		en : 'Model Information',
+		jp : 'モデルのデータ'
+	},
+	dialogBox18 : {
+		en : "Please input a name for the model",
+		jp : "モデル名を入力ください"
+	},
+	dialogBox19 : {
+		en : "Please write where the model is from",
+		jp : "モデルはどこから来たか描いてください"
+	},
+	dialogBox20 : {
+		en : 'Cancel',
+		jp : 'キャンセル'
+	},
+	dialogBox21 : {
+		en : 'Please choose a character',
+		jp : 'キャラクターをえらんでください'
+	},
+	dialogBox22 : {
+		en : 'Please input the file name',
+		jp : 'ファイル名を入力してください：'
+	},
+	dialogBox23 : {
+		en : 'Cancel',
+		jp : 'キャンセル'
+	},
+	dialogBox24 : {
+		en : 'Please choose a save file',
+		jp : 'セーブファイルを選んでください：'
+	},
+	dialogBox25 : {
+		en : 'Cancel',
+		jp : 'キャンセル'
+	},
+	/*dialogBox26 : {
 		en : ,
 		jp : 
-	},STRINGS["diagramEditor68"][lang]
-	diagramEditor69 : {
+	},STRINGS["dialogBox25"][lang]
+	dialogBox27 : {
 		en : ,
 		jp : 
-	},STRINGS["diagramEditor69"][lang]*/
+	},STRINGS["dialogBox27"][lang]
+	dialogBox28 : {
+		en : ,
+		jp : 
+	},STRINGS["dialogBox28"][lang]
+	dialogBox29 : {
+		en : ,
+		jp : 
+	},STRINGS["dialogBox29"][lang]*/
 };
 
 

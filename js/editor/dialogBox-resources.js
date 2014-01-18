@@ -77,11 +77,11 @@ var createImportModelButton = function() {
 				};
 
 				if (!(/\.(dae)$/i).test(uploadFile.name)) {
-					alert('daeファイルを選んでください');
+					alert(STRINGS["dialogBox4"][lang]);
 					goUpload = false;
 				}
 				if (uploadFile.size > 20000000) {// 20mb
-					common.notifyError('20 MBより小さいファイルを選んでください');
+					common.notifyError(STRINGS["dialogBox5"][lang]);
 					goUpload = false;
 				}
 				if (goUpload == true) {
@@ -130,7 +130,7 @@ var createImportModelButton = function() {
 var dialogBoxResources = {};
 dialogBoxResources['character-create'] = {
 	id : 'character-create',
-	title : 'キャラクターをえらんでください：',
+	title : STRINGS["dialogBox6"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -138,13 +138,13 @@ dialogBoxResources['character-create'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'モデルをとりこむ',
+		text : STRINGS["dialogBox7"][lang],
 		isMain : true,
 		onClick : function() {
 			if (stage.get('#labelUserName')[0].getText() == "") {
 				var dialog = new DialogLogin();
 				var text = dialog.get('Text')[0];
-				text.setText('ログインしてください');
+				text.setText(STRINGS["dialogBox8"][lang]);
 				text.setOffsetX(text.getWidth() / 2);
 				dialog.draw();
 			} else {
@@ -156,7 +156,7 @@ dialogBoxResources['character-create'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox9"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}
@@ -236,7 +236,7 @@ dialogBoxResources['character-create'] = {
 
 dialogBoxResources['group-create'] = {
 	id : 'group-create',
-	title : 'グループ作成',
+	title : STRINGS["dialogBox10"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -244,12 +244,12 @@ dialogBoxResources['group-create'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'つくる',
+		text : STRINGS["dialogBox11"][lang],
 		isMain : true,
 		onClick : function() {
 			var groupName = this.getParent().textField.value;
 			if (stage.groups.isExistName(groupName)) {
-				alert(groupName + "が存在します。新名を入力してください。");
+				alert(groupName + STRINGS["dialogBox12"][lang]);
 				return;
 			}
 			
@@ -275,7 +275,7 @@ dialogBoxResources['group-create'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox13"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}
@@ -298,7 +298,7 @@ dialogBoxResources['group-create'] = {
 
 dialogBoxResources['group-edit'] = {
 	id : 'group-create',
-	title : 'グループ編集',
+	title : STRINGS["dialogBox14"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -306,7 +306,7 @@ dialogBoxResources['group-edit'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'ほぞん',
+		text : STRINGS["dialogBox15"][lang],
 		isMain : true,
 		onClick : function() {
 		}
@@ -315,7 +315,7 @@ dialogBoxResources['group-edit'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox16"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}
@@ -338,7 +338,7 @@ dialogBoxResources['group-edit'] = {
 
 dialogBoxResources['character-import-model'] = {
 	id : 'character-import-model',
-	title : 'モデルのデータ',
+	title : STRINGS["dialogBox17"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -354,9 +354,9 @@ dialogBoxResources['character-import-model'] = {
 			stage.modelName = modelName;
 			var modelDescription = $('#import_description').val();
 			if (modelName == "") {
-				alert("モデル名を入力ください");
+				alert(STRINGS["dialogBox18"][lang]);
 			} else if (modelDescription == "") {
-				alert("モデルはどこから来たか描いてください");
+				alert(STRINGS["dialogBox19"][lang]);
 			} else {
 				dialogBoxes.close();
 				$.ajax({
@@ -390,7 +390,7 @@ dialogBoxResources['character-import-model'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox20"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 			console.log("php function to delete the uploaded files");
@@ -454,7 +454,7 @@ $(document).on('previewerScreenshot', function(event, path) {
 
 dialogBoxResources['character-create-changePanel'] = {
 	id : 'character-create-changePanel',
-	title : 'キャラクターをえらんでください',
+	title : STRINGS["dialogBox6"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -462,13 +462,13 @@ dialogBoxResources['character-create-changePanel'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'モデルをとりこむ',
+		text : STRINGS["dialogBox7"][lang],
 		isMain : true,
 		onClick : function() {
 			if (stage.get('#labelUserName')[0].getText() == "") {
 				var dialog = new DialogLogin();
 				var text = dialog.get('Text')[0];
-				text.setText('ログインしてください');
+				text.setText(STRINGS["dialogBox8"][lang]);
 				text.setOffsetX(text.getWidth() / 2);
 				dialog.draw();
 			} else {
@@ -480,7 +480,7 @@ dialogBoxResources['character-create-changePanel'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox9"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}
@@ -522,7 +522,7 @@ dialogBoxResources['character-create-changePanel'] = {
 
 dialogBoxResources['save-file'] = {
 	id : 'save-file',
-	title : 'ファイル名を入力してください：',
+	title : STRINGS["dialogBox22"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -584,7 +584,7 @@ dialogBoxResources['save-file'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox23"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}
@@ -594,7 +594,7 @@ dialogBoxResources['save-file'] = {
 
 dialogBoxResources['open-file'] = {
 	id : 'open-file',
-	title : 'セーブファイルを選んでください：',
+	title : STRINGS["dialogBox24"][lang],
 	width : 630,
 	height : 340,
 	buttons : [{
@@ -602,7 +602,7 @@ dialogBoxResources['open-file'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox26"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}

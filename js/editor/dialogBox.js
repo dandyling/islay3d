@@ -306,7 +306,7 @@ var DialogBoxWithThumbnails = function(config) {
 	var simpleText = new Kinetic.Text({
 		x : rect2.getX() + rect2.getWidth() / 2,
 		y : rect2.getY() + rect2.getHeight() + 7,
-		text : "ゲームスタートに表示する",
+		text : STRINGS["dialogBox1"][lang],
 		fontStyle : 'normal',
 		fontSize : 12,
 		fontFamily : 'sans-serif',
@@ -555,7 +555,7 @@ var DialogBoxWithAddThumbnails = function(config) {
 		strokeWidth : 1,
 	});
 
-	var groupName = stage.groups.getAutoName("グループ1");
+	var groupName = stage.groups.getAutoName(STRINGS["dialogBox2"][lang]);
 
 	var inputDivParent = document.createElement("div");
 	document.body.appendChild(inputDivParent);
@@ -582,7 +582,7 @@ var DialogBoxWithAddThumbnails = function(config) {
 	var simpleText = new Kinetic.Text({
 		x : rect2.getX() + rect2.getWidth() / 2 - $(textField).width() / 2 - 10,
 		y : rect2.getY() + 16,
-		text : "グループ名",
+		text : STRINGS["dialogBox3"][lang],
 		fontSize : 16,
 		fontFamily : 'sans-serif',
 		fill : 'white',
@@ -778,7 +778,7 @@ var DialogBoxWithAddThumbnails = function(config) {
 	var simpleText2 = new Kinetic.Text({
 		x : rect2.getX() + rect2.getWidth() / 2,
 		y : rect2.getY() + rect2.getHeight() + 7,
-		text : "ゲームスタートに表示する",
+		text : STRINGS["dialogBox1"][lang],
 		fontStyle : 'normal',
 		fontSize : 12,
 		fontFamily : 'sans-serif',
