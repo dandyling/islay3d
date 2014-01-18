@@ -97,10 +97,10 @@ var Avatar = function(config) {
 		width : 60,
 		height : 20,
 		layer : bubble,
-		text : 'つぎへ',
+		text : STRINGS["avatar1_2"][lang],
 		isMain : true,
 		onClick : function() {
-			avatar.say("まず、あたらしいキャラクターを\n追加してみましょう。\n\n「キャラクター作成」ボタンを\nクリックしてください。");
+			avatar.say(STRINGS["avatar1_1"][lang]);
 			button1.hide();
 			var pointer = stage.get('#pointerAvatar')[0];
 			pointer.hide();
@@ -200,11 +200,11 @@ var Marker = function() {
 	var click15 = function() {
 		stage.get('#buttonRun')[0].fire('click');
 		marker.hide();
-		avatar.say("おめでとう\n\nゲームをインタラクティブにすることができました！\n\n");
+		avatar.say(STRINGS["avatar20"][lang]);
 		var button = avatar.get('#buttonBubbleNext')[0];
 		button.rect.setX(-avatar.get('Tag')[0].getWidth() / 2 - 30 - 15);
 		var text = button.get('Text')[0];
-		text.setText('終了');
+		text.setText(STRINGS["avatar21"][lang]);
 		text.setX(button.rect.getX() + 30);
 		text.setOffsetX(Math.round(text.getWidth() / 2));
 		button.show();
@@ -239,7 +239,7 @@ var Marker = function() {
 
 	var click14 = function() {
 		stage.get('#buttonOK')[0].fire('click');
-		avatar.say("もどるやじるしをかく\n\n２個目の丸をクリックしたまま、\n１個目の丸にドラッグして、\n\n最初の動きにもどってくるようにします。\n\n注:今回、じょうけんを設定してないため、\n自動的に1つ目の動きにもどる");
+		avatar.say(STRINGS["avatar19"][lang]);
 		marker.hide();
 		marker.draw();
 		setTimeout(function() {
@@ -320,7 +320,7 @@ var Marker = function() {
 					onFinish : pointer.setCenterX
 				});
 				tween.play();*/
-				avatar.say("それじゃあ、ゲームを実行してみよう。\n\nその後で、キーボードの「→」キーをおして、\nまた動きを確認してみましょう。");
+				avatar.say(STRINGS["avatar18"][lang]);
 				marker.setX(functionBar.getX() + 38);
 				marker.setY(functionBar.getY() + 360);
 				marker.off('click');
@@ -360,12 +360,12 @@ var Marker = function() {
 		tween.play();*/
 		marker.off('click');
 		marker.on('click', click14);
-		avatar.say("ボックス中の「→」をえらんで、\nOKをおしてください。\n\nそうすると、もし「→」のキーをおすとき、\nキャラクターは前に決まった\n２個目の動きをする。");
+		avatar.say(STRINGS["avatar17"][lang]);
 	};
 
 	var click12 = function() {
 		stage.get('#buttonArrow')[0].fire('click');
-		avatar.say("やじるしをかく\n\n1つ目の丸をクリックしたまま、\n２つ目の丸までドラッグしてください。\n\nそうすると、1つ目の動きが終わったら、\n２つ目の動きへ進む");
+		avatar.say(STRINGS["avatar16"][lang]);
 		setTimeout(function() {
 			pointer.hide();
 			var marker1 = marker.clone();
@@ -430,7 +430,7 @@ var Marker = function() {
 			stage.on('arrow-created', function(arrow) {
 				marker1.destroy();
 				layerDiagram.draw();
-				avatar.say("進むのじょうけんをきめる\n\n「キー」ボタンをクリックして\nじょうけんをせんたくする。");
+				avatar.say(STRINGS["avatar15"][lang]);
 				var toolbar = stage.get('#rectDiagramEditor')[0];
 				pointer.setX(toolbar.getWidth() / 2 - 80);
 				pointer.setY(toolbar.getHeight() + 15);
@@ -451,7 +451,7 @@ var Marker = function() {
 
 	var click11 = function() {
 		stage.get('#actionToolbar')[0].dialog.get('#buttonOK')[0].fire('click');
-		avatar.say("やじるしをかく\n\nつぎに、矢印を書いて２つの動き\nをつなげてみましょう。矢印ツールを\nクリックしてください。");
+		avatar.say(STRINGS["avatar14"][lang]);
 		var drawingToolbar = stage.get('#groupDrawingToolbar')[0];
 		pointer.hide();
 		setTimeout(function(){
@@ -500,7 +500,7 @@ var Marker = function() {
 		/*$(toolbar.dialog.inputZr).animate({
 			backgroundColor : "#C33745"
 		}, 500);*/
-		avatar.say("キャラクターをうごかす\n\n別のテキストボックスの数字を\nふやしてみてください。\n\nこんど、キャラクターは右に\nかいてんするようにしましょう");
+		avatar.say(STRINGS["avatar13"][lang]);
 		marker.setX(toolbar.dialog.getX() + 142);
 		marker.setY(toolbar.dialog.getY() + 150);
 		marker.off('click');
@@ -538,7 +538,7 @@ var Marker = function() {
 		marker.setStrokeEnabled(false);
 		marker.setX(toolbar.getX() + 25);
 		marker.setY(toolbar.getY() + 25);
-		avatar.say("２個目の動きをきめる\n\n２個目の丸の動きをきめましょう。\n「うごかす」しるしの所を\nクリックしてください。");
+		avatar.say(STRINGS["avatar12"][lang]);
 		marker.off('click');
 		marker.on('click', click10);
 	};
@@ -547,7 +547,7 @@ var Marker = function() {
 		stage.get('#buttonRun')[0].fire('click');
 		pointer.hide();
 		marker.hide();
-		avatar.say("おめでとう!!\n\nゲームできた!");
+		avatar.say(STRINGS["avatar11"][lang]);
 		setTimeout(function() {
 			pointer.setX(650);
 			pointer.setY(150);
@@ -563,7 +563,7 @@ var Marker = function() {
 			marker.show();
 			marker.off('click');
 			marker.on('click', click9);
-			avatar.say("２個目の丸をかく\n\nこんどは、２個目の丸を書いてみましょう。");
+			avatar.say(STRINGS["avatar10"][lang]);
 		}, 4000);
 	};
 
@@ -587,7 +587,7 @@ var Marker = function() {
 			onFinish : pointer.setCenterX
 		});
 		tween.play();*/
-		avatar.say("ゲームをはじめよう！\n\nそれじゃあ、ゲームを実行して、\n動きを確認してみましょう。");
+		avatar.say(STRINGS["avatar9"][lang]);
 		marker.setX(functionBar.getX() + 38);
 		marker.setY(functionBar.getY() + 360);
 		marker.off('click');
@@ -617,7 +617,7 @@ var Marker = function() {
 		/*$(toolbar.dialog.inputY).animate({
 			backgroundColor : "#C33745"
 		}, 500);*/
-		avatar.say("キャラクターをうごかす\n\nテキストボックスの数字を\nふやしてみてください。\n\nキャラクターが前に動くようにしましょう");
+		avatar.say(STRINGS["avatar8"][lang]);
 		marker.setX(toolbar.dialog.getX() + 142);
 		marker.setY(toolbar.dialog.getY() + 150);
 		marker.off('click');
@@ -656,7 +656,7 @@ var Marker = function() {
 		marker.setStrokeEnabled(false);
 		marker.setX(toolbar.getX() + 25);
 		marker.setY(toolbar.getY() + 25);
-		avatar.say("動きをきめる\n\nこの丸の動きをきめましょう。\n「うごかす」しるしの所を\nクリックしてください。");
+		avatar.say(STRINGS["avatar7"][lang]);
 		marker.off('click');
 		marker.on('click', click6);
 	};
@@ -698,13 +698,13 @@ var Marker = function() {
 			marker.setScale(amplitude * Math.sin(frame.time * 2 * Math.PI / period) + 2);
 		}, layer);
 		marker.animation.start();
-		avatar.say('あかい丸でかこまれたところを\nクリックすると、丸がひょうじされます。');
+		avatar.say(STRINGS["avatar6"][lang]);
 		marker.off('click');
 		marker.on('click', click5);
 	};
 
 	var click3 = function() {
-		avatar.say("おめでとう！！\n\nキャラクターをゲームについかできました。");
+		avatar.say(STRINGS["avatar5"][lang]);
 		marker.hide();
 		pointer.hide();
 		setTimeout(function() {
@@ -719,7 +719,7 @@ var Marker = function() {
 			pointer.setRotation(0);
 			pointer.show();
 			pointer.setCenterX();
-			avatar.say("キャラクターを動かしてみよう\n\nこんどは、サークルツールを\nえらんで動きをつくりましょう。");
+			avatar.say(STRINGS["avatar4"][lang]);
 			marker.off('click');
 			marker.on('click', click4);
 		}, 3000);
@@ -746,7 +746,7 @@ var Marker = function() {
 			onFinish : pointer.setCenterX
 		});
 		tween.play();*/
-		avatar.say("Click the next button");
+		avatar.say(STRINGS["avatar3"][lang]);
 		marker.setX(dialogBox.rect.getX() + dialogBox.rect.getWidth() / 2 + 75);
 		marker.setY(dialogBox.rect.getY() + dialogBox.rect.getHeight() - 25);
 		marker.setScaleX(2.2);
@@ -776,7 +776,7 @@ var Marker = function() {
 			onFinish : pointer.setCenterX
 		});
 		tween.play();*/
-		avatar.say("つぎに、すきなキャラクターを選んでください");
+		avatar.say(STRINGS["avatar2"][lang]);
 		marker.hide();
 		stage.get('#character-create')[0].panels.on('mousedown', click3);
 	};
@@ -796,7 +796,7 @@ var Marker = function() {
 		y : window.innerHeight - 180,
 		width : 100,
 		height : 100,
-		text : "ようこそ！！\n\nこんにちは、ぼくはアイラ。はじめてのユーザー\nですか？ぼくが使いかたを説明します。\n\n",
+		text : STRINGS["avatar1"][lang],
 	});
 	var buttonPos = avatar.get('#buttonBubbleNext')[0].rect.getAbsolutePosition();
 	var pointer = new Pointer({

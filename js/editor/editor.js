@@ -1,3 +1,5 @@
+var lang="en";
+
 var m = 15;
 var m2 = 8;
 var menuBarHeight = 40;

@@ -34,6 +34,7 @@
 		<script src="js/player/character.js"></script>
 		<script src="js/player/transition.js"></script>
 		<script src="js/editor/editor.js" defer="defer"></script>
+		<script src="js/editor/strings.js" defer="defer"></script>
 		<script src="js/editor/utility.js"></script>
 		<script src="js/editor/previewerPlayer.js"></script>
 		<script src="js/editor/background.js" defer="defer"></script>
