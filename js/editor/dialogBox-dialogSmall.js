@@ -436,7 +436,7 @@ var DialogRenameState = function(state) {
 	dialog.button1.on('click', function() {
 		var newName = textField.value;
 		if (newName == "") {
-			alert(STRINGS["dialogBox25"][lang]);
+			alert(STRINGS["dialogBox26"][lang]);
 		} else if (layer.states[newName] != undefined) {
 			alert(STRINGS["dialogBox27"][lang]);
 		} else {

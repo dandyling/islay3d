@@ -2,7 +2,7 @@ var drawFunctionBar = function() {
 	var layer = new Kinetic.Layer();
 	var m1 = 8;
 
-	var h = (iconSize + 20) * 3 + 13 * 4;
+	var h = (iconSize + 20) * 2 + 13 * 3;
 	var w = iconSize + 23 * 2;
 
 	var posX = m;
@@ -49,22 +49,6 @@ var drawFunctionBar = function() {
 	addIcon({
 		x : posX + 23,
 		y : posY + 13 + space * 1,
-		source : 'img/functionBar/robot.png',
-		layer : layer,
-		id : 'buttonComplex',
-		addText : true,
-		text : STRINGS["functionBar2"][lang],
-		drawHitFunc : function(canvas){
-			var context = canvas.getContext();
-			context.beginPath();
-			context.rect(0 - 23, 0 - 13, w, iconSize + 20 * 2);
-			context.closePath();
-			canvas.fillStroke(this);
-		},
-	});
-	addIcon({
-		x : posX + 23,
-		y : posY + 13 + space * 2,
 		source : 'img/functionBar/group.png',
 		layer : layer,
 		id : 'buttonGroup',

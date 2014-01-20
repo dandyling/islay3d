@@ -602,7 +602,7 @@ dialogBoxResources['open-file'] = {
 		y : Math.round(window.innerHeight / 2 + 340 / 2) - 40,
 		width : 150,
 		height : 28,
-		text : STRINGS["dialogBox26"][lang],
+		text : STRINGS["dialogBox25"][lang],
 		onClick : function() {
 			dialogBoxes.close();
 		}
