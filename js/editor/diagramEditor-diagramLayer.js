@@ -42,7 +42,7 @@ var DiagramLayer = function(name) {
 	rect.on('mousedown', function() {
 		if (radio['buttonOval'].buttonDown) {
 			var mousePos = stage.getMousePosition();
-			var newState = new State23(mousePos.x - layer.getX(), mousePos.y - layer.getY(), '状態　' + layer.statesNum, layer);
+			var newState = new State23(mousePos.x - layer.getX(), mousePos.y - layer.getY(), 'State ' + layer.statesNum, layer);
 			layer.states[newState.getId()] = newState;
 			rect.calcBoundary();
 			layer.states[newState.getId()].setDragBoundFunc(function(pos) {

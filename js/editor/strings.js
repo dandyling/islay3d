@@ -353,7 +353,11 @@ var STRINGS = {
 	},
 	diagramEditor66 : {
 		en : "State 0",
-		jp : "状態　0"
+		jp : "状態 0"
+	},
+	diagramEditor66_1 : {
+		en : "State ",
+		jp : "状態 "
 	},
 	diagramEditor67 : {
 		en : "You cannot delete the main state!",
