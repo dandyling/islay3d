@@ -80,7 +80,7 @@ var addCharacterPanel = function(config) {
 	if (config.noTab == undefined) {
 		var diagramId = "tabs-1";
 		charPanel.diagrams[diagramId] = new DiagramLayer(diagramId);
-		charPanel.diagrams[diagramId].label = "図1";
+		charPanel.diagrams[diagramId].label = STRINGS["mainPanel1"][lang];
 		charPanel.array.push(charPanel.diagrams[diagramId]);
 		charPanel.selectedDiagram = charPanel.diagrams[diagramId];
 	}
@@ -199,7 +199,7 @@ var addCharacterPanel = function(config) {
 			id : 'characterDeleteButton',
 			iconSize : 20,
 			onClick : function() {
-				if (confirm('本当に\"' + stage.selectedPanel.getId() + "\"を削除する？")) {
+				if (confirm(STRINGS["mainPanel2"][lang] + stage.selectedPanel.getId() + STRINGS["mainPanel3"][lang])) {
 					stage.selectedPanel.removeSelf();
 					stage.get("#groupPanelBar")[0].refresh();
 					toggleCharactersPanel(characterPanels[0]);
@@ -314,7 +314,7 @@ var addGroupPanel = function(config) {
 		var diagramId = "tabs-1";
 		groupPanel.diagrams[diagramId] = new DiagramLayer(diagramId);
 		groupPanel.diagrams[diagramId].get('#rectDiagramEditor')[0].off('mousedown');
-		groupPanel.diagrams[diagramId].label = "図1";
+		groupPanel.diagrams[diagramId].label = STRINGS["mainPanel1"][lang];
 		groupPanel.array.push(groupPanel.diagrams[diagramId]);
 		groupPanel.selectedDiagram = groupPanel.diagrams[diagramId];
 	}
@@ -403,8 +403,8 @@ var addGroupPanel = function(config) {
 		toggleCharactersPanel(this.getParent());
 		dialogBoxes.close();
 		var copiedResource = dialogBoxResources['group-edit'];
-		copiedResource.title = 'グループ編集';
-		copiedResource.buttons[0].text = "ほぞん";
+		copiedResource.title = STRINGS["mainPanel4"][lang];
+		copiedResource.buttons[0].text = STRINGS["mainPanel5"][lang];
 		copiedResource.buttons[0].onClick = function() {
 			var characterImages = rectInvi.getParent().get('Image');
 			for (var i = 0; i < characterImages.length; i++) {
@@ -413,7 +413,7 @@ var addGroupPanel = function(config) {
 
 			var groupName = this.getParent().textField.value;
 			if (stage.groups.isExistName(groupName)) {
-				alert(groupName + "が存在します。新名を入力してください。");
+				alert(groupName + STRINGS["mainPanel6"][lang]);
 				return;
 			}
 
@@ -524,7 +524,7 @@ var addGroupPanel = function(config) {
 			id : 'characterDeleteButton',
 			iconSize : 20,
 			onClick : function() {
-				if (confirm('本当に\"' + stage.selectedPanel.getId() + "\"を削除する？")) {
+				if (confirm(STRINGS["mainPanel2"][lang] + stage.selectedPanel.getId() + STRINGS["mainPanel3"][lang])) {
 					stage.selectedPanel.removeSelf();
 					stage.get("#groupPanelBar")[0].refresh();
 					toggleCharactersPanel(characterPanels[0]);

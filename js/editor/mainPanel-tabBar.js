@@ -18,7 +18,7 @@ var drawTabBar = function(name, noTab) {
 	tabDiv.appendChild(ul);
 	
 	if(noTab == undefined) {
-		ul.innerHTML += '<li><a href="#tabs-1">図1</a></li>';
+		ul.innerHTML += '<li><a href="#tabs-1">' + STRINGS["mainPanel1"][lang] + '</a></li>';
 		tabDiv.innerHTML += '<div id="tabs-1"></div>';
 	}
 	$(tabDiv).tabs({
@@ -89,7 +89,7 @@ var drawTabBar = function(name, noTab) {
 		onClick : function() {
 			var counter = stage.selectedPanel.tabDiv.counter;
 			var tabs = $(stage.selectedPanel.tabDiv).tabs();
-			var label = "図" + counter;
+			var label =  STRINGS["mainPanel7"][lang] + counter;
 			var id = "tabs-" + counter;
 			var li = $(tabTemplate.replace(/#\{href\}/g, "#" + id).replace(/#\{label\}/g, label));
 
@@ -116,7 +116,7 @@ var drawTabBar = function(name, noTab) {
 		id : 'buttonEditTab',
 		name : 'button',
 		onClick : function() {
-			if (confirm('本当に\"' + stage.selectedPanel.selectedDiagram.label + "\"を削除する？")) {
+			if (confirm(STRINGS["mainPanel2"][lang] + stage.selectedPanel.selectedDiagram.label + STRINGS["mainPanel3"][lang])) {
 				var tabs = $(stage.selectedPanel.tabDiv).tabs();
 				var panelId = tabs.find(".ui-tabs-active").remove().attr("aria-controls");
 				$("#" + panelId).remove();

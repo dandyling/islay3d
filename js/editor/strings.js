@@ -519,6 +519,42 @@ var STRINGS = {
 		en : 'Run',
 		jp : '動かす'
 	},
+	mainPanel1 : {
+		en : "Diagram 1",
+		jp : "図1"
+	},
+	mainPanel2 : {
+		en : "Really delete \"",
+		jp : '本当に\"'
+	},
+	mainPanel3 : {
+		en : "\"",
+		jp : "\"を削除する？"
+	},
+	mainPanel4 : {
+		en : 'Group Edit',
+		jp : 'グループ編集'
+	},
+	mainPanel5 : {
+		en : "Save",
+		jp : "ほぞん"
+	},
+	mainPanel6 : {
+		en : "name exist.  Please enter a new name.",
+		jp :  "が存在します。新名を入力してください。"
+	},
+	mainPanel7 : {
+		en : "Diagram ",
+		jp : "図"
+	},
+	/*mainPanel8 : {
+		en : ,
+		jp : 
+	},STRINGS["mainPanel8"][lang]
+	mainPanel9 : {
+		en : ,
+		jp : 
+	},STRINGS["mainPanel9"][lang]*/
 };
 
 
