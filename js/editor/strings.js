@@ -532,7 +532,7 @@ var STRINGS = {
 		jp : '本当に\"'
 	},
 	mainPanel3 : {
-		en : "\"",
+		en : "\"?",
 		jp : "\"を削除する？"
 	},
 	mainPanel4 : {
