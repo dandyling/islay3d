@@ -421,7 +421,7 @@ var STRINGS = {
 	},
 	dialogBox16 : {
 		en : 'Cancel',
-		jp 'キャンセル': 
+		jp : 'キャンセル'
 	},
 	dialogBox17 : {
 		en : 'Model Information',
@@ -459,22 +459,62 @@ var STRINGS = {
 		en : 'Cancel',
 		jp : 'キャンセル'
 	},
-	/*dialogBox26 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox25"][lang]
+	dialogBox26 : {
+		en : "Please enter a new name",
+		jp : "新名を入力してください"
+	},
 	dialogBox27 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox27"][lang]
+		en : "There is already an existing state with the same name!",
+		jp : "同様の状態名が存在します。"
+	},
 	dialogBox28 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox28"][lang]
+		en : "Please enter a new name",
+		jp : "新名を入力してください"
+	},
 	dialogBox29 : {
+		en : "There is already an existing character with the same name!",
+		jp : "同様のキャラクター名が存在します。"
+	},
+	dialogBox30 : {
+		en : "Please login",
+		jp : "ログインしてください"
+	},
+	dialogBox31 : {
+		en : "Please enter a new name",
+		jp : "新しい図名を入力してください:"
+	},
+	dialogBox32 : {
+		en : "There is already an existing diagram with the same name!",
+		jp : "同様の図名が存在します。"
+	},
+	dialogBox33 : {
+		en : "Please enter a new name for the duplicated diagram:",
+		jp : "複製された図の新しい名前を入力してください："
+	},
+	dialogBox34 : {
+		en : 'Cancel',
+		jp : 'キャンセル'
+	},
+	/*dialogBox35 : {
 		en : ,
 		jp : 
-	},STRINGS["dialogBox29"][lang]*/
+	},STRINGS["dialogBox35"][lang]
+	dialogBox36 : {
+		en : ,
+		jp : 
+	},STRINGS["dialogBox36"][lang]
+	dialogBox37 : {
+		en : ,
+		jp : 
+	},STRINGS["dialogBox37"][lang]
+	dialogBox38 : {
+		en : ,
+		jp : 
+	},STRINGS["dialogBox38"][lang]
+	dialogBox39 : {
+		en : ,
+		jp : 
+	},STRINGS["dialogBox39"][lang]*/
 };
 
 

@@ -237,7 +237,7 @@ var DialogSmall = function(config) {
 		width : 60,
 		height : 20,
 		layer : dialog,
-		text : 'キャンセル',
+		text : STRINGS["dialogBox34"][lang],
 		onClick : function() {
 			dialogBoxes.closeSmallDialogs();
 		}
@@ -436,9 +436,9 @@ var DialogRenameState = function(state) {
 	dialog.button1.on('click', function() {
 		var newName = textField.value;
 		if (newName == "") {
-			alert("Please enter a new name");
+			alert(STRINGS["dialogBox25"][lang]);
 		} else if (layer.states[newName] != undefined) {
-			alert("There is already an existing state with the same name!");
+			alert(STRINGS["dialogBox27"][lang]);
 		} else {
 			dialog.renameState(newName);
 		}
@@ -526,9 +526,9 @@ var DialogRenameCharacter = function(charPanel) {
 	dialog.button1.on('click', function() {
 		var newName = textField.value;
 		if (newName == "") {
-			alert("Please enter a new name");
+			alert(STRINGS["dialogBox28"][lang]);
 		} else if (characterPanels.names.containsKey(newName)) {
-			alert("There is already an existing character with the same name!");
+			alert(STRINGS["dialogBox29"][lang]);
 		} else {
 			dialog.renameCharPanel(newName);
 		}
@@ -581,7 +581,7 @@ var DialogLogin = function() {
 	var text = new Kinetic.Text({
 		x : config.width / 2,
 		y : 20,
-		text : "ログインしてください",
+		text : STRINGS["dialogBox30"][lang],
 		fontStyle : 'bold',
 		fontSize : 20,
 		fontFamily : 'calibri',
@@ -738,7 +738,7 @@ var DialogRenameDiagram = function(index) {
 	var simpleText = new Kinetic.Text({
 		x : 10,
 		y : 10,
-		text : "新しい図名を入力してください:",
+		text : STRINGS["dialogBox31"][lang],
 		fontStyle : 'normal',
 		fontSize : 12,
 		fontFamily : 'sans-serif',
@@ -771,9 +771,9 @@ var DialogRenameDiagram = function(index) {
 	dialog.button1.on('click', function() {
 		var newName = textField.value;
 		if (newName == "") {
-			alert("Please enter a new name");
+			alert(STRINGS["dialogBox31"][lang]);
 		} else if (diagramNameExist(newName)) {
-			alert("There is already an existing diagram with the same name!");
+			alert(STRINGS["dialogBox32"][lang]);
 		} else {
 			dialog.renameDiagram(newName);
 		}
@@ -829,7 +829,7 @@ var DialogDuplicateCharacter = function(tabs) {
 	var simpleText = new Kinetic.Text({
 		x : 10,
 		y : 10,
-		text : "複製された図の新しい名前を入力してください：",
+		text : STRINGS["dialogBox33"][lang],
 		fontStyle : 'normal',
 		fontSize : 12,
 		fontFamily : 'sans-serif',
@@ -878,9 +878,9 @@ var DialogDuplicateCharacter = function(tabs) {
 	dialog.button1.on('click', function() {
 		var newName = textField.value;
 		if (newName == "") {
-			alert("Please enter a new name");
+			alert(STRINGS["dialogBox31"][lang]);
 		} else if (diagramNameExist(newName)) {
-			alert("There is already an existing diagram with the same name!");
+			alert(STRINGS["dialogBox32"][lang]);
 		} else {
 			dialog.renameDiagram(newName);
 		}
