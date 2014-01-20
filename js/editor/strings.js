@@ -500,8 +500,8 @@ var STRINGS = {
 		jp : 'キャンセル'
 	},
 	editor1 : {
-		en : '保存されてないチェンジは消されますよ！',
-		jp : 'You will lose any unsaved changes!'
+		en : 'You will lose any unsaved changes!',
+		jp : '保存されてないチェンジは消されますよ！'
 	},
 	functionBar1 : {
 		en : 'Create\nCharacter',
@@ -551,14 +551,30 @@ var STRINGS = {
 		en : "Diagram ",
 		jp : "図"
 	},
-	/*mainPanel8 : {
+	menuBar1 : {
+		en : "Please login",
+		jp : 'ログインしてください'
+	},
+	menuBar2 : {
+		en : "You will lose any unsaved changes!  Are you sure you want to continue to open a saved file?",
+		jp : '保存されてないチェンジが消されますよ！本当にお進みますか？'
+	},
+	/*menuBar2 : {
 		en : ,
 		jp : 
-	},STRINGS["mainPanel8"][lang]
-	mainPanel9 : {
+	},STRINGS["menuBar2"][lang]
+	menuBar2 : {
 		en : ,
 		jp : 
-	},STRINGS["mainPanel9"][lang]*/
+	},STRINGS["menuBar2"][lang]
+	menuBar2 : {
+		en : ,
+		jp : 
+	},STRINGS["menuBar2"][lang]
+	menuBar2 : {
+		en : ,
+		jp : 
+	},STRINGS["menuBar2"][lang]*/
 };
 
 

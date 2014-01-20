@@ -24,10 +24,10 @@ var drawMenuBar = function() {
 			if (stage.get('#labelUserName')[0].getText() == "") {
 				var dialog = new DialogLogin();
 				var text = dialog.get('Text')[0];
-				text.setText('ログインしてください');
+				text.setText(STRINGS["menuBar1"][lang]);
 				text.setOffsetX(text.getWidth() / 2);
 				dialog.draw();
-			} else if(confirm("You will lose any unsaved changes!  Are you sure you want to continue to open a saved file?")){
+			} else if(confirm(STRINGS["menuBar2"][lang])){
 				dialogBoxes.close();
 				dialogBoxResources['open-file'].thumbnails.path = 'users/' + stage.pid + '/files/';
 				var dialogBox1 = new DialogBoxWithThumbnails(dialogBoxResources['open-file']);
@@ -47,7 +47,7 @@ var drawMenuBar = function() {
 			if (stage.get('#labelUserName')[0].getText() == "") {
 				var dialog = new DialogLogin();
 				var text = dialog.get('Text')[0];
-				text.setText('ログインしてください');
+				text.setText(STRINGS["menuBar1"][lang]);
 				text.setOffsetX(text.getWidth() / 2);
 				dialog.draw();
 			} else {
