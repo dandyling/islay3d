@@ -32,7 +32,7 @@ var drawFunctionBar = function() {
 		layer : layer,
 		id : 'buttonCharacter',
 		addText : true,
-		text : 'キャラクター\n作成',
+		text : STRINGS["functionBar1"][lang],
 		drawHitFunc : function(canvas){
 			var context = canvas.getContext();
 			context.beginPath();
@@ -53,7 +53,7 @@ var drawFunctionBar = function() {
 		layer : layer,
 		id : 'buttonComplex',
 		addText : true,
-		text : 'コンプレックス体\n作成',
+		text : STRINGS["functionBar2"][lang],
 		drawHitFunc : function(canvas){
 			var context = canvas.getContext();
 			context.beginPath();
@@ -69,7 +69,7 @@ var drawFunctionBar = function() {
 		layer : layer,
 		id : 'buttonGroup',
 		addText : true,
-		text : 'グループ作成',
+		text : STRINGS["functionBar3"][lang],
 		drawHitFunc : function(canvas){
 			var context = canvas.getContext();
 			context.beginPath();
@@ -111,7 +111,7 @@ var drawFunctionBar = function() {
 		layer : layer,
 		id : 'buttonWorld',
 		addText : true,
-		text : 'ワールド設定',
+		text : STRINGS["functionBar4"][lang],
 		drawHitFunc : function(canvas){
 			var context = canvas.getContext();
 			context.beginPath();
@@ -146,7 +146,7 @@ var drawFunctionBar = function() {
 		layer : layer,
 		id : 'buttonRun',
 		addText : true,
-		text : '動かす',
+		text : STRINGS["functionBar5"][lang],
 		drawHitFunc : function(canvas){
 			var context = canvas.getContext();
 			context.beginPath();

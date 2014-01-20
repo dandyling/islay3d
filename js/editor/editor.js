@@ -377,5 +377,5 @@ stage.arrangeLayer = function() {
 };
 
 $(window).bind('beforeunload', function(){
-	return 'You will lose any unsaved changes!';
+	return STRINGS["editor1"][lang];
 });

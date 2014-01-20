@@ -495,26 +495,30 @@ var STRINGS = {
 		en : 'Cancel',
 		jp : 'キャンセル'
 	},
-	/*dialogBox35 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox35"][lang]
-	dialogBox36 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox36"][lang]
-	dialogBox37 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox37"][lang]
-	dialogBox38 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox38"][lang]
-	dialogBox39 : {
-		en : ,
-		jp : 
-	},STRINGS["dialogBox39"][lang]*/
+	editor1 : {
+		en : '保存されてないチェンジは消されますよ！',
+		jp : 'You will lose any unsaved changes!'
+	},
+	functionBar1 : {
+		en : 'Create\nCharacter',
+		jp : 'キャラクター\n作成'
+	},
+	functionBar2 : {
+		en : 'Create\nComplex',
+		jp : 'コンプレックス体\n作成'
+	},
+	functionBar3 : {
+		en : 'Create\nGroup',
+		jp : 'グループ作成'
+	},
+	functionBar4 : {
+		en : 'World\nSettings',
+		jp : 'ワールド設定'
+	},
+	functionBar5 : {
+		en : 'Run',
+		jp : '動かす'
+	},
 };
 
 
