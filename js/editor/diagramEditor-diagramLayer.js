@@ -39,9 +39,11 @@ var DiagramLayer = function(name) {
 		}
 	};
 	layer.statesNum = 0;
-	rect.on('mousedown', function() {
+	rect.on('mousedown', function(mousePos) {
 		if (radio['buttonOval'].buttonDown) {
-			var mousePos = stage.getMousePosition();
+			if (mousePos == undefined) {
+				mousePos = stage.getMousePosition();
+			}
 			var newState = new State23(mousePos.x - layer.getX(), mousePos.y - layer.getY(), STRINGS["diagramEditor66_1"][lang] + layer.statesNum, layer);
 			layer.states[newState.getId()] = newState;
 			rect.calcBoundary();
@@ -80,11 +82,11 @@ var DiagramLayer = function(name) {
 		var states = statediagram.getElementsByTagName("state");
 		for (var i = 0; i < states.length; i++) {
 			var newState = new State23(parseInt(states[i].attributes["pos_x"].value), parseInt(states[i].attributes["pos_y"].value), states[i].attributes["name"].value, layer);
-			if(i == 0){
+			if (i == 0) {
 				newState.oval.setStrokeWidth(3);
 				newState.isMain = true;
 			}
-			
+
 			newState.xml = states[i];
 			//newState.buttons["stateRenameButton"].hide();
 			layer.states[newState.getId()] = newState;
@@ -137,14 +139,14 @@ var DiagramLayer = function(name) {
 			//var state = layer.states[s];
 			statelist.appendChild(layer.states[s].xml);
 			var attrib = layer.states[s].xml2.attributes;
-			if(attrib.length != 0) {
-				for(var i=0; i<attrib.length; i++){
+			if (attrib.length != 0) {
+				for (var i = 0; i < attrib.length; i++) {
 					//console.log(attrib);
 					var name = attrib[i].name;
 					//console.log(attrib[i], attrib[i].name, attrib[i].value);
 					layer.states[s].xml.setAttribute(name, attrib[i].value);
 					//layer.states[s].xml.attributes[name] = attrib[i].value;
-					
+
 					console.log(layer.states[s].xml);
 				}
 			}
@@ -163,6 +165,39 @@ var DiagramLayer = function(name) {
 	layer.add(layer.drawings);
 	stage.add(layer);
 	stage.arrangeLayer();
+
+	(function(){
+		var newState = new State23(500, 300, STRINGS["diagramEditor66_1"][lang] + layer.statesNum, layer);
+		layer.states[newState.getId()] = newState;
+		rect.calcBoundary();
+		layer.states[newState.getId()].setDragBoundFunc(function(pos) {
+			var X = pos.x;
+			var Y = pos.y;
+			if (X < minX) {
+				X = minX;
+			}
+			if (X > maxX) {
+				X = maxX;
+			}
+			if (Y < minY) {
+				Y = minY;
+			}
+			if (Y > maxY) {
+				Y = maxY;
+			}
+			return ( {
+				x : X,
+				y : Y
+			});
+		});
+		layer.statesNum++;
+		layer.states[newState.getId()].select();
+	
+		dialogBoxes.close();
+		dialogBoxes.actionToolbar = new ActionToolbar(newState);
+		dialogBoxes.actionToolbar.currentState = newState;
+		dialogBoxes.actionToolbar.setAutoPosition(newState.getX(), newState.getY());
+	})();
 
 	return layer;
 };
