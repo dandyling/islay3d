@@ -21,6 +21,7 @@
 		<script src="js/lib/plugins/primitive.gl.enchant.js"></script>
 		<script src="js/lib/plugins/collada.gl.enchant.js"></script>
 		<script src="js/player/xml3di.js"></script>
+		<script src="js/lib/hashtable.js"></script>
 		<script src="js/player/hash.js"></script>
 		<script src="js/player/input.js"></script>
 		<script src="js/player/executeAction.js"></script>

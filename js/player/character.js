@@ -53,6 +53,7 @@ var Character = function(xmlData) {
 	character.createStateDiagrams = function() {
 		character.XML.STATEDIAGRAMS = new Hash(character.XML.getElementsByTagName("statediagram"), "name");
 		var stateDiagrams = character.XML.STATEDIAGRAMS;
+								
 		for (var a in stateDiagrams) {
 			stateDiagrams[a].STATES = new Hash(stateDiagrams[a].getElementsByTagName("state"), "name");
 			if (character.XML.STATEDIAGRAMS[a].init == undefined) {
@@ -60,31 +61,43 @@ var Character = function(xmlData) {
 				character.XML.STATEDIAGRAMS[a].init = true;
 			}
 			stateDiagrams[a].TRANS = stateDiagrams[a].getElementsByTagName("trans");
-			
+			var transitions = stateDiagrams[a].TRANS;
 			// Attach the transitions to the corresponding states
-			for (var b in stateDiagrams[a].STATES) {
-				character.attachTransition(stateDiagrams[a].STATES[b], stateDiagrams[a].TRANS);
+			for (var i = 0; i < transitions.length; i++) {
+				for (var b in stateDiagrams[a].STATES) {
+					var state = stateDiagrams[a].STATES[b];
+					if(state.trans == undefined) {
+						state.trans = new Array();
+					}
+					if(state.transHash == undefined) {
+						state.transHash = new Hashtable();
+					}
+					if (state.attributes["name"].value == transitions[i].attributes["from"].value) {
+						state.trans.push(transitions[i]);
+						
+						if (transitions[i].attributes["guard"].value == "key") {
+							var button = INPUTBUTTONS[transitions[i].attributes["key"].value];
+							var to = transitions[i].attributes["to"].value;
+							state.transHash.put(button, character.XML.STATEDIAGRAMS[a].STATES[to]);
+							$(state).on(button+'buttondown', function(e, diag){
+								var button = e.type.replace('buttondown', '');
+								var toState = this.transHash.get(button);
+								character.XML.STATEDIAGRAMS[diag].current = toState;
+							});
+							
+							player.on(button+'buttondown', function(e){
+								for (var a in character.XML.STATEDIAGRAMS) {
+									var button = e.type;
+									$(character.XML.STATEDIAGRAMS[a].current).trigger(button, a);
+								}
+							});
+						} 
+					}	
+				}
 			}
 		};
 	};
-
-	character.attachTransition = function(state, transitions) {
-		state.trans = new Array();
-		for (var i = 0; i < transitions.length; i++) {
-			if (transitions[i].attributes["guard"].value == "key" && 
-					state.attributes["name"].value == transitions[i].attributes["to"].value) {
-				
-				var button = INPUTBUTTONS[transitions[i].attributes["key"].value];
-				player.on(button+'buttondown', function(e){
-					character.executeActionType1(state);
-				});
-			}
-			if (state.attributes["name"].value == transitions[i].attributes["from"].value) {
-				state.trans.push(transitions[i]);
-			}
-		}
-	};
-
+	
 	character.sendParentMessage = function(chara, msg) {
 		if (chara.parentNode != null) {
 			chara.parentNode.message = msg;

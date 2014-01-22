@@ -23,17 +23,25 @@ var detectcollision = function(character, a, to, characters, object) {
 
 transition = function(player, character) {
 	for (var a in character.XML.STATEDIAGRAMS) {
-		// Initialize every state diagrams if not already initialized
+				
 		character.executeActionType1(character.XML.STATEDIAGRAMS[a].current);
 		character.executeActionType2(player, character.XML.STATEDIAGRAMS[a].current);
 
-		for (var x = 0; x < character.XML.STATEDIAGRAMS[a].current.trans.length; x++) {
+		for (var x = 0; x < character.XML.STATEDIAGRAMS[a].current.trans.length ; x++) {
 			var tran = character.XML.STATEDIAGRAMS[a].current.trans[x];
 			var guard = tran.attributes["guard"].value;
 			var to = tran.attributes["to"].value;
+			
 
 			switch(guard) {
-				case 'key' :
+				case 'key':
+					/*var input = InputHash(player);
+					var key = tran.attributes["key"].value;
+					
+					//console.log(character.XML.STATEDIAGRAMS[a].current.trans.length, x, key);
+					if (input[key]) {
+						character.XML.STATEDIAGRAMS[a].current = character.XML.STATEDIAGRAMS[a].STATES[to];
+					}*/
 					break;
 				
 				case 'prob':
