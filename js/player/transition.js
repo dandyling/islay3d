@@ -24,12 +24,6 @@ var detectcollision = function(character, a, to, characters, object) {
 transition = function(player, character) {
 	for (var a in character.XML.STATEDIAGRAMS) {
 		// Initialize every state diagrams if not already initialized
-		if (!character.XML.STATEDIAGRAMS[a].init) {
-			character.XML.STATEDIAGRAMS[a].current = Hash.first(character.XML.STATEDIAGRAMS[a].STATES);
-			character.XML.STATEDIAGRAMS[a].init = true;
-			
-		}
-
 		character.executeActionType1(character.XML.STATEDIAGRAMS[a].current);
 		character.executeActionType2(player, character.XML.STATEDIAGRAMS[a].current);
 
