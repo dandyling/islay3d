@@ -74,14 +74,3 @@ $('#menubar_help').on('click', function() {
 		layerAvatar.show();
 	}
 });
-
-/*var drawMenuBar = function() {
-
-	var imageObj2 = new Image();
-	imageObj2.onload = function() {
-		var image = new Kinetic.Image({
-			id : "buttonLogout",
-		});
-	};
-
-};*/

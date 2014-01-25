@@ -82,12 +82,12 @@
 			<img src="img/menuBar/menubar6.png" id="menubar_login" class='hoverable menubar-right' alt="menubar">
 		</div>
 		<div id="functionbar">
-			<img src="img/functionBar/functionbar1.png" class='hoverable' alt="functionbar">
-			<img src="img/functionBar/functionbar2.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar1.png" id="functionbar_character" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar2.png" id="functionbar_group" class='hoverable' alt="functionbar">
 			<img src="img/functionBar/functionbar2_1.png" alt="functionbar">
-			<img src="img/functionBar/functionbar3.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar3.png" id="functionbar_world" class='hoverable' alt="functionbar">
 			<img src="img/functionBar/functionbar3_1.png" alt="functionbar">
-			<img src="img/functionBar/functionbar4.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar4.png" id="functionbar_run" class='hoverable' alt="functionbar">
 			<img src="img/functionBar/functionbar4_1.png" alt="functionbar">
 		</div>
 		<div id="canvas" style="position: absolute"></div>
