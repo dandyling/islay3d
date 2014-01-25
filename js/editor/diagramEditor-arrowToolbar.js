@@ -186,7 +186,7 @@ var ArrowToolbar = function(arrow) {
 	var max3Y = rectD.getY() + rectD.getParent().getY() + rectD.getHeight() - m1;
 
 	toolbar.setAutoPosition = function(posX, posY) {
-		var rectDiag = stage.get('#rectDiagramEditor')[0];
+		var rectDiag = measurementRectDiagramEditor;
 		if (toolbar.dialog == undefined) {
 			/*var xrect1 = posX - rect.getWidth()/2;
 			 var yrect1 = posY - (rect.getHeight() + 10);
@@ -202,7 +202,7 @@ var ArrowToolbar = function(arrow) {
 			 offsetY1 = -rect.getHeight() - OVALRADIUS - 10*2;
 			 }
 			 toolbar.setPosition(xrect1 - offsetX1, yrect1 - offsetY1);*/
-			toolbar.setPosition(rectDiag.getWidth() / 2, rectDiag.getHeight());
+			toolbar.setPosition(rectDiag.width / 2 - STAGEOFFSETX, rectDiag.height - STAGEOFFSETY);
 		} else {
 			/*var xrect1 = posX - rect.getWidth()/2;
 			 var xrect2 = posX - toolbar.dialog.rect.getWidth()/2;
@@ -225,7 +225,8 @@ var ArrowToolbar = function(arrow) {
 
 			 toolbar.setPosition(xrect1 - offsetX1, yrect1 - offsetY1);
 			 toolbar.dialog.adjustPosition(xrect2 - offsetX2, yrect2 - offsetY2);*/
-			toolbar.setPosition(rectDiag.getWidth() / 2, rectDiag.getHeight());
+			
+			toolbar.setPosition(rectDiag.width / 2 - STAGEOFFSETX, rectDiag.height - STAGEOFFSETY);
 			//toolbar.dialog.adjustPosition(rectDiag.getWidth()/2 - toolbar.dialog.rect.getWidth()/2, rectDiag.getHeight() - 180);
 		}
 

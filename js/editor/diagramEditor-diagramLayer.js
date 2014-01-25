@@ -166,7 +166,7 @@ var DiagramLayer = function(name) {
 	stage.add(layer);
 	stage.arrangeLayer();
 
-	(function(){
+	setTimeout(function(){
 		var newState = new State23(500, 300, STRINGS["diagramEditor66_1"][lang] + layer.statesNum, layer);
 		layer.states[newState.getId()] = newState;
 		rect.calcBoundary();
@@ -197,7 +197,7 @@ var DiagramLayer = function(name) {
 		dialogBoxes.actionToolbar = new ActionToolbar(newState);
 		dialogBoxes.actionToolbar.currentState = newState;
 		dialogBoxes.actionToolbar.setAutoPosition(newState.getX(), newState.getY());
-	})();
+	}, 1000);
 
 	return layer;
 };

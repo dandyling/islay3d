@@ -324,8 +324,8 @@ var DialogBoxWithThumbnails = function(config) {
 		//background: "green"
 	});
 	$(inputDivParent).offset({
-		left : rect2.getX(),
-		top : rect2.getY() + rect2.getHeight(),
+		left : rect2.getX() + STAGEOFFSETX,
+		top : rect2.getY() + rect2.getHeight() + STAGEOFFSETY,
 	});
 	dialogBox.inputDivParent = inputDivParent;
 
@@ -565,8 +565,8 @@ var DialogBoxWithAddThumbnails = function(config) {
 		//background: "green"
 	});
 	$(inputDivParent).offset({
-		left : rect2.getX(),
-		top : rect2.getY(),
+		left : rect2.getX() + STAGEOFFSETX,
+		top : rect2.getY() + STAGEOFFSETY,
 	});
 	dialogBox.inputDivParent = inputDivParent;
 
@@ -795,8 +795,8 @@ var DialogBoxWithAddThumbnails = function(config) {
 		//background: "green"
 	});
 	$(inputDivParent2).offset({
-		left : rect2.getX(),
-		top : rect2.getY() + rect2.getHeight(),
+		left : rect2.getX() + STAGEOFFSETX,
+		top : rect2.getY() + rect2.getHeight() + STAGEOFFSETY,
 	});
 	dialogBox.inputDivParent2 = inputDivParent2;
 
@@ -873,8 +873,8 @@ var DialogBoxImage = function(config) {
 		//background: "green"
 	});
 	$(inputDivParent).offset({
-		left : rect.getAbsolutePosition().x + 5,
-		top : rect.getAbsolutePosition().y + 45,
+		left : rect.getAbsolutePosition().x + 5 + STAGEOFFSETX,
+		top : rect.getAbsolutePosition().y + 45 + STAGEOFFSETY,
 	});
 
 	var textField = document.createElement("input");
@@ -885,8 +885,8 @@ var DialogBoxImage = function(config) {
 		placeholder : "untitled"
 	});
 	$(textField).offset({
-		left : Math.round(rect.getX() + rect.getWidth() / 2 - $(textField).width() / 2),
-		top : Math.round(rect.getY() + rect.getHeight() - 80),
+		left : Math.round(rect.getX() + rect.getWidth() / 2 - $(textField).width() / 2 + STAGEOFFSETX),
+		top : Math.round(rect.getY() + rect.getHeight() - 80 + STAGEOFFSETY),
 	});
 	textField.focus();
 
