@@ -500,7 +500,7 @@ var Arrow = function(state1, state2, layer) {
 		var label;
 		var simpleText = new Kinetic.Text({
 			x : x,
-			y : y + 10,
+			y : y + 5,
 			fontSize : 9,
 			fontFamily : 'sans-serif',
 			fill : 'black',
