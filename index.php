@@ -72,14 +72,14 @@
 
 	<body>
 		<div id="menubar">
-			<img src="img/menuBar/menubar1.png" class='hoverable' alt="menubar">
-			<img src="img/menuBar/menubar2.png" class='hoverable' alt="menubar">
-			<img src="img/menuBar/menubar3.png" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar1.png" id="menubar_new" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar2.png" id="menubar_open" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar3.png" id="menubar_save" class='hoverable' alt="menubar">
 			<img src="img/menuBar/menubar3_1.png" alt="menubar">
-			<img src="img/menuBar/menubar4.png" class='hoverable' alt="menubar">
-			<img src="img/menuBar/menubar5.png" class='hoverable' alt="menubar">
-			<img src="img/menuBar/menubar7.png" class='hoverable menubar-right' alt="menubar">
-			<img src="img/menuBar/menubar6.png" class='hoverable menubar-right' alt="menubar">
+			<img src="img/menuBar/menubar4.png" id="menubar_undo" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar5.png" id="menubar_redo" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar7.png" id="menubar_help" class='hoverable menubar-right' alt="menubar">
+			<img src="img/menuBar/menubar6.png" id="menubar_login" class='hoverable menubar-right' alt="menubar">
 		</div>
 		<div id="functionbar">
 			<img src="img/functionBar/functionbar1.png" class='hoverable' alt="functionbar">

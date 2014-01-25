@@ -32,16 +32,14 @@ var setUserName = function(username) {
 
 var login = function(username) {
 	setUserName(username);
-	stage.get('#buttonLogin')[0].hide();
-	stage.get('#buttonLogout')[0].show();
-	stage.get('#buttonLogin')[0].getParent().draw();
+	$('#menubar_login').hide();
+	$('#menubar_logout').show();
 };
 
 var logout = function() {
 	setUserName("");
-	stage.get('#buttonLogout')[0].hide();
-	stage.get('#buttonLogin')[0].show();
-	stage.get('#buttonLogin')[0].getParent().draw();
+	$('#menubar_logout').hide();
+	$('#menubar_login').show();
 };
 
 var addUserName = function() {
