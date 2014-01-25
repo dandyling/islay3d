@@ -1,6 +1,8 @@
 var lang="en";
 var MENUBARHEIGHT = 70;
 var FUNCTIONBARWIDTH = 107;
+var STAGEOFFSETX = FUNCTIONBARWIDTH;
+var STAGEOFFSETY = MENUBARHEIGHT;
 var m = 15;
 var m2 = 8;
 var menuBarHeight = 40;

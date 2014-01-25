@@ -242,7 +242,7 @@ var ActionToolbar = function(state) {
 			 offsetY1 = -rect.getHeight() - 64 - 10*2;
 			 }
 			 toolbar.setPosition(xrect1 - offsetX1, yrect1 - offsetY1);*/
-			toolbar.setPosition(rectDiag.width / 2 - FUNCTIONBARWIDTH, rectDiag.height - MENUBARHEIGHT);
+			toolbar.setPosition(rectDiag.width / 2 - STAGEOFFSETX, rectDiag.height - STAGEOFFSETY);
 		} else {
 			/*var xrect1 = posX - rect.getWidth()/2;
 			 var xrect2 = posX - toolbar.dialog.rect.getWidth()/2;
@@ -265,7 +265,7 @@ var ActionToolbar = function(state) {
 
 			 toolbar.setPosition(xrect1 - offsetX1, yrect1 - offsetY1);
 			 toolbar.dialog.adjustPosition(xrect2 - offsetX2, yrect2 - offsetY2);*/
-			toolbar.setPosition(rectDiag.width / 2 - FUNCTIONBARWIDTH, rectDiag.height - MENUBARHEIGHT);
+			toolbar.setPosition(rectDiag.width / 2 - STAGEOFFSETX, rectDiag.height - STAGEOFFSETY);
 			//toolbar.dialog.adjustPosition(rectDiag.getWidth()/2 - dialog.rect.getWidth()/2, rectDiag.getHeight() - 180);
 		}
 

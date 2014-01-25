@@ -26,8 +26,8 @@ var DialogSmall = function(config) {
 		//background: "green"
 	});
 	$(inputDivParent).offset({
-		left : rect.getAbsolutePosition().x + 5,
-		top : rect.getAbsolutePosition().y + 5,
+		left : rect.getAbsolutePosition().x + 5 + STAGEOFFSETX,
+		top : rect.getAbsolutePosition().y + 5 + STAGEOFFSETY,
 	});
 	dialog.inputDivParent = inputDivParent;
 
@@ -484,8 +484,8 @@ var DialogRenameCharacter = function(charPanel) {
 		//background: "green"
 	});
 	$(inputDivParent).offset({
-		left : x + 5,
-		top : y + 5 + 110,
+		left : x + 5 + STAGEOFFSETX,
+		top : y + 5 + 110 + STAGEOFFSETY,
 	});
 	var textField = new TextField("inputTextNewCharPanelName", simpleText.getText(), 5, 5);
 	$(textField).offset({
@@ -726,8 +726,8 @@ var DialogRenameDiagram = function(index) {
 		height : 55,
 	});
 	$(inputDivParent).offset({
-		left : x + 5,
-		top : y + 5,
+		left : x + 5 + STAGEOFFSETX,
+		top : y + 5 + STAGEOFFSETY,
 	});
 	var textField = new TextField("inputTextNewDialogName", stage.selectedPanel.selectedDiagram.label, 5, 25);
 	$(textField).offset({
@@ -817,8 +817,8 @@ var DialogDuplicateCharacter = function(tabs) {
 		height : 55,
 	});
 	$(inputDivParent).offset({
-		left : x + 5,
-		top : y + 5,
+		left : x + 5 + STAGEOFFSETX,
+		top : y + 5 + STAGEOFFSETY,
 	});
 	var textField = new TextField("inputTextNewDialogName", stage.selectedPanel.selectedDiagram.label, 5, 25);
 	$(textField).offset({
