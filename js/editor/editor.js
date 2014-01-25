@@ -19,9 +19,9 @@ var measurementRectFunctionBar = {
 	width : 0
 };
 var measurementRectDiagramEditor = {
-	x : measurementRectFunctionBar.x + measurementRectFunctionBar.width + m + 80 + 20 + m2 * 2,
+	x : measurementRectFunctionBar.x + measurementRectFunctionBar.width + 80 + 20 + m2 * 2,
 	y : m2,
-	width : window.innerWidth - (FUNCTIONBARWIDTH + m + 80 + 20 + m2 * 2) - m - m2,
+	width : window.innerWidth - (FUNCTIONBARWIDTH + m + 80 + 20 + m2 * 2) - m2,
 	height : window.innerHeight - MENUBARHEIGHT - m * 2 - m2 * 2,
 };
 

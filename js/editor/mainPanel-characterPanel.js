@@ -67,7 +67,7 @@ var addCharacterPanel = function(config) {
 
 	var charPanel = new Kinetic.Group({
 		id : config.name,
-		x : rectFunctionBar.getX() + rectFunctionBar.getWidth() + m,
+		x : rectFunctionBar.getX() + rectFunctionBar.getWidth(),
 		y : rectFunctionBar.getY() + 20 + (60 + m1 * 2 + mText) * characterPanels.length
 	});
 	charPanel.path = config.pathImage;
@@ -293,7 +293,7 @@ var addGroupPanel = function(config) {
 	var rectFunctionBar = stage.get('#rectFunctionBar')[0];
 	var rectMainPanel = stage.get('#rectMainPanel')[0];
 
-	var posX = rectFunctionBar.getX() + rectFunctionBar.getWidth() + m;
+	var posX = rectFunctionBar.getX() + rectFunctionBar.getWidth();
 	var posY = rectFunctionBar.getY() + 20 + (60 + m1 * 2 + mText) * characterPanels.length;
 	var groupPanel = new Kinetic.Group({
 		id : config.name,

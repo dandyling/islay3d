@@ -10,9 +10,9 @@ var drawMainPanel = function() {
 	});
 
 	var rect = new Kinetic.Rect({
-		x : rectFunctionBar.getX() + rectFunctionBar.getWidth() + m,
+		x : rectFunctionBar.getX() + rectFunctionBar.getWidth(),
 		y : rectFunctionBar.getY(),
-		width : window.innerWidth - (FUNCTIONBARWIDTH + m) - m,
+		width : window.innerWidth - (FUNCTIONBARWIDTH + m),
 		height : window.innerHeight - MENUBARHEIGHT - m * 2,
 		stroke : 'black',
 		strokeWidth : 1,
@@ -20,7 +20,7 @@ var drawMainPanel = function() {
 	});
 	layer.add(rect);
 
-	var posX = rectFunctionBar.getX() + rectFunctionBar.getWidth() + m + 80 + 20 + m2;
+	var posX = rectFunctionBar.getX() + rectFunctionBar.getWidth() + 80 + 20 + m2;
 	var rectSelected = new Kinetic.Rect({
 		x : posX,
 		y : rectFunctionBar.getY(),
@@ -68,7 +68,7 @@ var drawMainPanel = function() {
 
 	panelBar.refresh = function() {
 		for (var i = 0; i < characterPanels.length; i++) {
-			characterPanels[i].setX(rectFunctionBar.getX() + rectFunctionBar.getWidth() + m);
+			characterPanels[i].setX(rectFunctionBar.getX() + rectFunctionBar.getWidth());
 			characterPanels[i].setY(rectFunctionBar.getY() + 20 + (60 + m1 * 2 + mText) * i);
 		}
 		layer2.draw();
