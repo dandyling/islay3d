@@ -12,7 +12,7 @@ var drawMainPanel = function() {
 	var rect = new Kinetic.Rect({
 		x : rectFunctionBar.getX() + rectFunctionBar.getWidth() + m,
 		y : rectFunctionBar.getY(),
-		width : window.innerWidth - (rectFunctionBar.getX() + rectFunctionBar.getWidth() + m) - m,
+		width : window.innerWidth - (FUNCTIONBARWIDTH + m) - m,
 		height : window.innerHeight - m * 2 - menuBarHeight - m * 2,
 		stroke : 'black',
 		strokeWidth : 1,

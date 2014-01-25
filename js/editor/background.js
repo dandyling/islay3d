@@ -11,6 +11,15 @@ var drawBackground = function() {
 		fill : '#F2F2F2',
 		opacity : 0.5
 	});
+	
+	var rect1 = new Kinetic.Rect({
+		x : 0,
+		y : 0,
+		width : 0,
+		height : 0,
+		id : 'rectFunctionBar'
+	});
+	layer.add(rect1);
 
 	layer.add(rect);
 	stage.add(layer);

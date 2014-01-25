@@ -1,5 +1,5 @@
 var lang="en";
-
+var FUNCTIONBARWIDTH = 107;
 var m = 15;
 var m2 = 8;
 var menuBarHeight = 40;
@@ -43,8 +43,8 @@ var stage = new Kinetic.Stage({
 	x : 0,
 	y : 0,
 	container : 'canvas',
-	width : window.innerWidth,
-	height : window.innerHeight
+	width : window.innerWidth - FUNCTIONBARWIDTH,
+	height : window.innerHeight - 69
 });
 stage.showHitCanvas = function(layer) {
 	var hitCanvas = layer.hitCanvas.getElement();

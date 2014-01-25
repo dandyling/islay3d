@@ -10,17 +10,17 @@
 			html, body {
 				margin: 0;
 				padding: 0;
-				background-color: #333333;
+				/*background-color: #333333;*/
 			}
 			#menubar {
-				background-color: #FFFF00;
+				/*background-color: #FFFF00;*/
 				height: 69px;
 				width: 100%;
 			}
 			#functionbar {
-				background-color: #FF0000;
-				float: left; 
-				width: 107px !important; 
+				/*background-color: #FF0000;*/
+				float: left;
+				width: 107px !important;
 			}
 		</style>
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.css">
@@ -31,7 +31,7 @@
 		<script src="js/lib/jquery-ui-1.10.3.custom.js"></script>
 		<script src="js/lib/jquery.iframe-transport.js"></script>
 		<script src="js/lib/jquery.fileupload.js"></script>
-        <script src="js/lib/enchant.js"></script>
+		<script src="js/lib/enchant.js"></script>
 		<script src="js/lib/plugins/libs/gl-matrix-min.js"></script>
 		<script src="js/lib/plugins/gl.enchant.js"></script>
 		<script src="js/lib/plugins/bone.gl.enchant.js"></script>
@@ -70,7 +70,8 @@
 		<script src="js/main.js" defer="defer"></script>
 	</head>
 
-	<body><div id="menubar">
+	<body>
+		<div id="menubar">
 			<img src="img/menuBar/menubar1.png" class='hoverable' alt="menubar">
 			<img src="img/menuBar/menubar2.png" class='hoverable' alt="menubar">
 			<img src="img/menuBar/menubar3.png" class='hoverable' alt="menubar">
@@ -89,17 +90,21 @@
 			<img src="img/functionBar/functionbar4.png" class='hoverable' alt="functionbar">
 			<img src="img/functionBar/functionbar4_1.png" alt="functionbar">
 		</div>
-		<!--<div id="canvas" style="position: absolute"></div>
-		<div id="divStageTabBar" style="position: absolute"></div>-->
+		<div id="canvas" style="position: absolute"></div>
+		<div id="divStageTabBar" style="position: absolute"></div>
 		<script>
 			$('#functionbar').height($(window).height() - 69);
 			$('.menubar-right').css('float', 'right');
-			$('.hoverable').hover(function(){
-				$(this).css('cursor' , 'pointer');
-			},function(){
-				$(this).css('cursor' , 'auto');
+			$('.hoverable').hover(function() {
+				$(this).css('cursor', 'pointer');
+			}, function() {
+				$(this).css('cursor', 'auto');
 			});
-		</script>
+			$('#canvas').offset({left : 107}).css({
+			//	backgroundColor : "#AAAA00"
+			});
 		
+		</script>
+
 	</body>
 </html>
