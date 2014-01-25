@@ -312,7 +312,7 @@ var addGroupPanel = function(config) {
 	groupPanel.array = new Array();
 	if (config.noTab == undefined) {
 		var diagramId = "tabs-1";
-		groupPanel.diagrams[diagramId] = new DiagramLayer(diagramId);
+		groupPanel.diagrams[diagramId] = new DiagramLayer(diagramId, groupPanel.isGroup);
 		groupPanel.diagrams[diagramId].get('#rectDiagramEditor')[0].off('mousedown');
 		groupPanel.diagrams[diagramId].label = STRINGS["mainPanel1"][lang];
 		groupPanel.array.push(groupPanel.diagrams[diagramId]);

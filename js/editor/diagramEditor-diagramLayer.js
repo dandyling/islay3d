@@ -7,7 +7,7 @@ var headlen = 10;
 var rectFunctionBar = stage.get('#rectFunctionBar')[0];
 
 /** Returns a new layer for the diagram editor */
-var DiagramLayer = function(name) {
+var DiagramLayer = function(name, isGroup) {
 	var rectFunctionBar = stage.get('#rectFunctionBar')[0];
 
 	var layer = new Kinetic.Layer({
@@ -166,7 +166,11 @@ var DiagramLayer = function(name) {
 	stage.add(layer);
 	stage.arrangeLayer();
 
+	
 	setTimeout(function(){
+		if(layer.statesNum != 0 || isGroup == true){
+			return;
+		}
 		var newState = new State23(500, 300, STRINGS["diagramEditor66_1"][lang] + layer.statesNum, layer);
 		layer.states[newState.getId()] = newState;
 		rect.calcBoundary();
