@@ -1,4 +1,5 @@
 var lang="en";
+var MENUBARHEIGHT = 70;
 var FUNCTIONBARWIDTH = 107;
 var m = 15;
 var m2 = 8;
@@ -10,16 +11,16 @@ var customMessages = {};
 var OVALRADIUS = 32;
 var cursor = 'default';
 var measurementRectFunctionBar = {
-	x : m,
-	y : menuBarHeight + m + m,
-	height : (iconSize + 20) * 3 + 13 * 4 + 20,
-	width : iconSize + 23 * 2
+	x : 0,
+	y : 0,
+	height : 0,
+	width : 0
 };
 var measurementRectDiagramEditor = {
 	x : measurementRectFunctionBar.x + measurementRectFunctionBar.width + m + 80 + 20 + m2 * 2,
-	y : m + menuBarHeight + m + m2,
-	width : window.innerWidth - (measurementRectFunctionBar.x + measurementRectFunctionBar.width + m + 80 + 20 + m2 * 2) - m - m2,
-	height : window.innerHeight - m * 2 - menuBarHeight - m * 2 - m2 * 2,
+	y : m2,
+	width : window.innerWidth - (FUNCTIONBARWIDTH + m + 80 + 20 + m2 * 2) - m - m2,
+	height : window.innerHeight - MENUBARHEIGHT - m * 2 - m2 * 2,
 };
 
 var characterPanels = new Array();
@@ -44,7 +45,7 @@ var stage = new Kinetic.Stage({
 	y : 0,
 	container : 'canvas',
 	width : window.innerWidth - FUNCTIONBARWIDTH,
-	height : window.innerHeight - 69
+	height : window.innerHeight - MENUBARHEIGHT
 });
 stage.showHitCanvas = function(layer) {
 	var hitCanvas = layer.hitCanvas.getElement();

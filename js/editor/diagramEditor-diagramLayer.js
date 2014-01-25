@@ -44,7 +44,7 @@ var DiagramLayer = function(name) {
 			if (mousePos == undefined) {
 				mousePos = stage.getMousePosition();
 			}
-			var newState = new State23(mousePos.x - layer.getX(), mousePos.y - layer.getY(), STRINGS["diagramEditor66_1"][lang] + layer.statesNum, layer);
+			var newState = new State23(mousePos.x - FUNCTIONBARWIDTH, mousePos.y - MENUBARHEIGHT, STRINGS["diagramEditor66_1"][lang] + layer.statesNum, layer);
 			layer.states[newState.getId()] = newState;
 			rect.calcBoundary();
 			layer.states[newState.getId()].setDragBoundFunc(function(pos) {
