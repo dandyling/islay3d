@@ -9,8 +9,8 @@ var drawTabBar = function(name, noTab) {
 		height : 45,
 		//background: "black",
 		position : "absolute",
-		top : measurementRectDiagramEditor.y,
-		left : measurementRectDiagramEditor.x + 4,
+		top : measurementRectDiagramEditor.y + MENUBARHEIGHT,
+		left : measurementRectDiagramEditor.x + 4 + FUNCTIONBARWIDTH,
 		border : "none"
 	});
 

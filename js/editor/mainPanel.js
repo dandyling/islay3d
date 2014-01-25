@@ -13,7 +13,7 @@ var drawMainPanel = function() {
 		x : rectFunctionBar.getX() + rectFunctionBar.getWidth() + m,
 		y : rectFunctionBar.getY(),
 		width : window.innerWidth - (FUNCTIONBARWIDTH + m) - m,
-		height : window.innerHeight - m * 2 - menuBarHeight - m * 2,
+		height : window.innerHeight - MENUBARHEIGHT - m * 2,
 		stroke : 'black',
 		strokeWidth : 1,
 		id : 'rectMainPanel'
@@ -24,8 +24,8 @@ var drawMainPanel = function() {
 	var rectSelected = new Kinetic.Rect({
 		x : posX,
 		y : rectFunctionBar.getY(),
-		width : window.innerWidth - posX - m,
-		height : window.innerHeight - m * 2 - menuBarHeight - m * 2,
+		width : window.innerWidth - posX - m - FUNCTIONBARWIDTH,
+		height : window.innerHeight - MENUBARHEIGHT - m * 2,
 		fill : '#00FFFF',
 		opacity : 0,
 		id : 'rectMainPanelSelected'
