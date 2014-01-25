@@ -7,9 +7,20 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Islay 3D - Create 3D games and animations by drawing circles and arrows</title>
 		<style>
-			body {
+			html, body {
 				margin: 0;
 				padding: 0;
+				background-color: #333333;
+			}
+			#menubar {
+				background-color: #FFFF00;
+				height: 69px;
+				width: 100%;
+			}
+			#functionbar {
+				background-color: #FF0000;
+				float: left; 
+				width: 107px !important; 
 			}
 		</style>
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.css">
@@ -59,10 +70,36 @@
 		<script src="js/main.js" defer="defer"></script>
 	</head>
 
-	<body>
-		<div id="canvas" style="position: absolute"></div>
-		<div id="divStageTabBar" style="position: absolute"></div>
-		
+	<body><div id="menubar">
+			<img src="img/menuBar/menubar1.png" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar2.png" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar3.png" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar3_1.png" alt="menubar">
+			<img src="img/menuBar/menubar4.png" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar5.png" class='hoverable' alt="menubar">
+			<img src="img/menuBar/menubar7.png" class='hoverable menubar-right' alt="menubar">
+			<img src="img/menuBar/menubar6.png" class='hoverable menubar-right' alt="menubar">
+		</div>
+		<div id="functionbar">
+			<img src="img/functionBar/functionbar1.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar2.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar2_1.png" alt="functionbar">
+			<img src="img/functionBar/functionbar3.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar3_1.png" alt="functionbar">
+			<img src="img/functionBar/functionbar4.png" class='hoverable' alt="functionbar">
+			<img src="img/functionBar/functionbar4_1.png" alt="functionbar">
+		</div>
+		<!--<div id="canvas" style="position: absolute"></div>
+		<div id="divStageTabBar" style="position: absolute"></div>-->
+		<script>
+			$('#functionbar').height($(window).height() - 69);
+			$('.menubar-right').css('float', 'right');
+			$('.hoverable').hover(function(){
+				$(this).css('cursor' , 'pointer');
+			},function(){
+				$(this).css('cursor' , 'auto');
+			});
+		</script>
 		
 	</body>
 </html>
