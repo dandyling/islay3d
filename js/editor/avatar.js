@@ -306,7 +306,7 @@ var Marker = function() {
 				pointer.hide();
 				setTimeout(function(){
 					pointer.setX(functionBar.getX() + 150);
-					pointer.setY(functionBar.getY() + 370);	
+					pointer.setY(functionBar.getY() + 300);	
 					pointer.setCenterX();
 					pointer.setRotation(Math.PI);
 					pointer.show();
@@ -322,7 +322,7 @@ var Marker = function() {
 				tween.play();*/
 				avatar.say(STRINGS["avatar18"][lang]);
 				marker.setX(functionBar.getX() + 38);
-				marker.setY(functionBar.getY() + 360);
+				marker.setY(functionBar.getY() + 290);
 				marker.off('click');
 				marker.on('click', click15);
 				marker.show();
@@ -573,7 +573,7 @@ var Marker = function() {
 		pointer.hide();
 		setTimeout(function(){
 			pointer.setX(functionBar.getX() + 150);
-			pointer.setY(functionBar.getY() + 370);	
+			pointer.setY(functionBar.getY() + 300);	
 			pointer.setCenterX();
 			pointer.setRotation(Math.PI);
 			pointer.show();
@@ -589,7 +589,7 @@ var Marker = function() {
 		tween.play();*/
 		avatar.say(STRINGS["avatar9"][lang]);
 		marker.setX(functionBar.getX() + 38);
-		marker.setY(functionBar.getY() + 360);
+		marker.setY(functionBar.getY() + 290);
 		marker.off('click');
 		marker.on('click', click8);
 	};
