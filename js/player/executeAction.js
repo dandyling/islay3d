@@ -1,4 +1,5 @@
 var gforkTimeout = false;
+var transformTimeout = false;
 
 executeActionType1 = function(character, state) {
 	if (state.attributes["action"].value == "move" || state.attributes["action"].value == "move-world") {
@@ -83,8 +84,14 @@ executeActionType2 = function(player, character, state) {
 			gforkTimeout = false;
 		}, 400);
 	} else if (option == "transform") {
+		if(transformTimeout == true){
+			return;
+		}
 		var charaTo = state.attributes["chara-state"].value;
 		player.transform(character, player.characters[charaTo]);
+		transformTimeout = true;
+		setTimeout(function(){
+			transformTimeout = false;
+		}, 400);
 	}
-	
 }; 

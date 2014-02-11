@@ -141,7 +141,6 @@ var Player = function() {
 				newCharacter.bounding.radius = 12;		// custom bounding radius for collision detection
 				player.scene3d.addChild(newCharacter);
 				newCharacter.isComplex = false;
-				console.log("Model: " + newCharacter.XML.attributes["parts"].value);
 				newCharacter.x = character.x;
 				newCharacter.y = character.y;
 				newCharacter.z = character.z;
