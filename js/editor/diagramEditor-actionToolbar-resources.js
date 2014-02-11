@@ -599,9 +599,9 @@ var DialogActionToolbarGroup = function(toolbar) {
 	};
 	
 	var groups = $(stage.getXML()).find('group');
-	groups.splice(0, 1);	//remove main group
+	groups[0].attributes["name"].value = "None";
 	var groupList = {};
-	for(var i=0; i<groups.length; i++){
+	for(var i=1; i<groups.length; i++){
 		groupList[i] = groups[i].attributes["name"].value;
 	}
 	var selectBoxCharacter = new SelectBox({
@@ -611,6 +611,10 @@ var DialogActionToolbarGroup = function(toolbar) {
 		optionList : groupList,
 		value : (toolbar.state.xml2.attributes["option"] != undefined) && toolbar.state.xml2.attributes["option"].value == "gfork" ? dialog.getAttributeString("gfork", "group") : "main"
 	});
+	
+	$(selectBoxCharacter).prepend('<option value="" disabled selected>None</option>');
+	//console.log((toolbar.state.xml2.attributes["option"] != undefined), toolbar.state.xml2.attributes["option"].value == "gfork");
+	
 	selectBoxCharacter.onchange = function() {
 		//console.log(selectBoxCharacter.value);
 	};

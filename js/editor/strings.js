@@ -232,7 +232,7 @@ var STRINGS = {
 		jp : "おしらせを書いてください"
 	},
 	diagramEditor36 : {
-		en : "Become the parent of the group ",
+		en : "Create group: ",
 		jp : "グループの親になる"
 	},
 	diagramEditor37 : {
