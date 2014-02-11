@@ -142,6 +142,9 @@ var Player = function() {
 				player.scene3d.addChild(newCharacter);
 				newCharacter.isComplex = false;
 				console.log("Model: " + newCharacter.XML.attributes["parts"].value);
+				newCharacter.x = character.x;
+				newCharacter.y = character.y;
+				newCharacter.z = character.z;
 				player.scene3d.removeChild(character);
 			}, function() {
 				console.log("player load model error!!");
