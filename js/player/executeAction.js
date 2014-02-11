@@ -84,7 +84,7 @@ executeActionType2 = function(player, character, state) {
 		}, 400);
 	} else if (option == "transform") {
 		var charaTo = state.attributes["chara-state"].value;
-		player.createCharacter(player.characters[charaTo]);
+		player.transform(character, player.characters[charaTo]);
 	}
 	
 }; 

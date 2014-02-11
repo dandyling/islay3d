@@ -129,13 +129,25 @@ var Player = function() {
 		}
 	};
 	
-	player.createCharacter = function(character) {
-		var XMLData = character.cloneNode(true);
+	player.transform = function(character, charaTo) {
+		var XMLData = charaTo.cloneNode(true);
 		var newCharacter = new Character(XMLData);
 		if (!isComplex(newCharacter)) {
-			setPrimitive(newCharacter);
+			var parts = newCharacter.XML.attributes["parts"].value;
+			var path = player.data[parts].attributes["path"].value;
+	
+			player.load(path, parts, function() {
+				newCharacter.set(this);
+				newCharacter.bounding.radius = 12;		// custom bounding radius for collision detection
+				player.scene3d.addChild(newCharacter);
+				newCharacter.isComplex = false;
+				console.log("Model: " + newCharacter.XML.attributes["parts"].value);
+				player.scene3d.removeChild(character);
+			}, function() {
+				console.log("player load model error!!");
+			});
 		} else {
-			setComplex(newCharacter);
+			setComplex(newCharacter);　// this function is obsolete
 		}
 	};
 
