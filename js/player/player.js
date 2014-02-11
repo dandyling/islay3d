@@ -145,6 +145,7 @@ var Player = function() {
 				newCharacter.x = character.x;
 				newCharacter.y = character.y;
 				newCharacter.z = character.z;
+				newCharacter.rotation = character.rotation;
 				player.scene3d.removeChild(character);
 			}, function() {
 				console.log("player load model error!!");
