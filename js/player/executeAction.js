@@ -16,29 +16,29 @@ executeActionType1 = function(character, state) {
 		character.rotateYaw(rY * (Math.PI / 180));
 		character.rotatePitch(rZ * (Math.PI / 180));
 	} else if (state.attributes["action"].value == "jump") {
-		var x = parseFloat(state.attributes["x"].value);
-		var y = parseFloat(state.attributes["y"].value);
-		var z = parseFloat(state.attributes["z"].value);
+		var x = parseFloat(state.attributes["x"].value); 
+		var y = parseFloat(state.attributes["y"].value); // this axis is opposite in enchantjs compared to islay3d convention
+		var z = parseFloat(state.attributes["z"].value); // this axis is opposite in enchantjs compared to islay3d convention
 
 		if (state.attributes["xflag"].value == "true") {
 			character.x = x;
 		}
 		if (state.attributes["yflag"].value == "true") {
-			character.y = y;
+			character.y = y; 
 		}
 		if (state.attributes["zflag"].value == "true") {
-			character.z = z;
+			character.z = z; 
 		}
 	} else if (state.attributes["action"].value == "jump-rand") {
 		if (state.attributes["xflag"].value == "true") {
 			character.x = Math.random() * 100 * (Math.random() >= 0.5 ? 1 : -1);
 		}
 		if (state.attributes["yflag"].value == "true") {
-			character.y = Math.random() * 100 * (Math.random() >= 0.5 ? 1 : -1);
-		}
-		if (state.attributes["zflag"].value == "true") {
 			character.z = Math.random() * 100 * (Math.random() >= 0.5 ? 1 : -1);
-		}
+		} // this axis is opposite in enchantjs compared to islay3d convention
+		if (state.attributes["zflag"].value == "true") {
+			character.y = Math.random() * 100 * (Math.random() >= 0.5 ? 1 : -1);
+		} // this axis is opposite in enchantjs compared to islay3d convention
 	} else if (state.attributes["action"].value == "scale") {
 		var x = parseFloat(state.attributes["x"].value);
 		var y = parseFloat(state.attributes["y"].value);
