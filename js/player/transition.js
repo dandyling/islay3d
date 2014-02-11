@@ -27,12 +27,14 @@ transition = function(player, character) {
 		character.executeActionType1(character.XML.STATEDIAGRAMS[a].current);
 		character.executeActionType2(player, character.XML.STATEDIAGRAMS[a].current);
 
+		if(character.XML.STATEDIAGRAMS[a].current.trans == undefined) {
+			break;
+		}
 		for (var x = 0; x < character.XML.STATEDIAGRAMS[a].current.trans.length ; x++) {
 			var tran = character.XML.STATEDIAGRAMS[a].current.trans[x];
 			var guard = tran.attributes["guard"].value;
 			var to = tran.attributes["to"].value;
 			
-
 			switch(guard) {
 				case 'key':
 					/*var input = InputHash(player);
