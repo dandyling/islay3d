@@ -599,7 +599,6 @@ var DialogActionToolbarGroup = function(toolbar) {
 	};
 	
 	var groups = $(stage.getXML()).find('group');
-	groups[0].attributes["name"].value = "None";
 	var groupList = {};
 	for(var i=1; i<groups.length; i++){
 		groupList[i] = groups[i].attributes["name"].value;
@@ -634,11 +633,10 @@ var DialogActionToolbarCharacter = function(toolbar) {
 		toolbar : toolbar
 	});
 	var SelectBox = dialog.SelectBox;
-	var Table = dialog.Table;
 
 	var simpleText = new Kinetic.Text({
-		x : 80,
-		y : dialog.rect.getY() + 15,
+		x : 50,
+		y : dialog.rect.getY() + dialog.rect.getHeight() / 2 - 10,
 		text : STRINGS["diagramEditor37"][lang],
 		fontFamily : 'sans-serif',
 		fill : 'black',
@@ -655,105 +653,25 @@ var DialogActionToolbarCharacter = function(toolbar) {
 		});
 		return xml;
 	};
-
+	
+	var charas = $(stage.getXML()).find('character');
+	console.log(charas);
+	var charaList = {};
+	for(var i=0; i<charas.length; i++){
+		charaList[i] = charas[i].attributes["name"].value;
+	}
 	var selectBoxCharacter = new SelectBox({
 		name : 'selectbox',
 		left : simpleText.getX() + simpleText.getWidth(),
-		right : simpleText.getY() - 9,
-		optionList : {
-			character : "character",
-			character2 : "character2",
-			character3 : "character3"
-		},
-		value : (toolbar.state.xml2.attributes["option"] != undefined) && toolbar.state.xml2.attributes["option"].value == "transform" ? dialog.getAttributeString("transform", "chara-state") : "character"
+		top : simpleText.getY() - 9,
+		optionList : charaList,
+		value : (toolbar.state.xml2.attributes["option"] != undefined) && toolbar.state.xml2.attributes["option"].value == "transform" ? dialog.getAttributeString("transform", "chara-state") : ""
 	});
+	
+	$(selectBoxCharacter).prepend('<option value="" disabled selected>None</option>');
+	
 	selectBoxCharacter.onchange = function() {
 		//console.log(selectBoxCharacter.value);
-	};
-
-	var tempStates = {
-		state1 : "State 1",
-		state2 : "State 2",
-		state3 : "State 3",
-		state4 : "State 4",
-		state5 : "State 5"
-	};
-
-	var table = new Table({
-		id : "table",
-		left : dialog.rect.getX() + 20,
-		top : 35,
-		header : ["Diagram", "Initial State"],
-		data : {
-			"Diagram 1" : tempStates,
-			"Diagram 2" : tempStates,
-			"Diagram 3" : tempStates,
-			"Diagram 4" : tempStates,
-			"Diagram 5" : tempStates,
-			"Diagram 6" : tempStates
-		}
-	});
-
-	toolbar.layer.draw();
-
-	return dialog;
-};
-
-var DialogActionToolbarTransform = function(toolbar) {
-	var dialog = new DialogSmallToolbar2({
-		x : toolbar.getX() + toolbar.rect.getWidth() / 2 - 380 / 2,
-		y : toolbar.getY() - 165 - 10,
-		width : 380,
-		height : 165,
-		layer : toolbar.layer,
-		toolbar : toolbar
-	});
-	var ButtonRadio = dialog.ButtonRadio;
-
-	dialog.getStateXML = function() {
-		var xml = document.createElement("stateOption");
-		$(xml).attr({
-			option : MESSAGETYPE[selectBoxCharacter.value],
-			message : (document.getElementById("inputTextCustomMessage") != undefined) ? document.getElementById("inputTextCustomMessage").value : selectBoxMessage.value,
-		});
-		return xml;
-	};
-
-	dialog.getStateXML = function() {
-		var xml = document.createElement("stateOption");
-
-		$(xml).attr({
-			option : buttonRadio.getClicked(),
-		});
-
-		return xml;
-	};
-
-	var getDefaultButton = function() {
-		for (var key in OPTIONTYPE) {
-			if (toolbar.state.xml2.attributes["option"] != undefined && OPTIONTYPE[key] == toolbar.state.xml2.attributes["option"].value) {
-				return key;
-			}
-		}
-	};
-
-	var OPTIONTYPE = new Object();
-	OPTIONTYPE[STRINGS["diagramEditor38"][lang]] = "show";
-	OPTIONTYPE[STRINGS["diagramEditor39"][lang]] = "hide";
-	OPTIONTYPE[STRINGS["diagramEditor40"][lang]] = "exit";
-	OPTIONTYPE[STRINGS["diagramEditor41"][lang]] = "finish";
-
-	var buttonRadio = new ButtonRadio('buttonRadio', 100, 100, [STRINGS["diagramEditor38"][lang], STRINGS["diagramEditor39"][lang], STRINGS["diagramEditor40"][lang], STRINGS["diagramEditor41"][lang]], getDefaultButton());
-
-	buttonRadio.getClicked = function() {
-		var childButtons = buttonRadio.getElementsByTagName("input");
-		for (var i = 0; i < childButtons.length; i++) {
-			if (childButtons[i].checked) {
-				var labelText = childButtons[i].attributes["labelText"].value;
-				var xml = OPTIONTYPE[labelText];
-				return xml;
-			}
-		}
 	};
 
 	toolbar.layer.draw();

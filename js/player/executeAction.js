@@ -82,5 +82,9 @@ executeActionType2 = function(player, character, state) {
 		setTimeout(function(){
 			gforkTimeout = false;
 		}, 400);
+	} else if (option == "transform") {
+		var charaTo = state.attributes["chara-state"].value;
+		player.createCharacter(player.characters[charaTo]);
 	}
+	
 }; 
