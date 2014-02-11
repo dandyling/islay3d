@@ -128,6 +128,16 @@ var Player = function() {
 			}
 		}
 	};
+	
+	player.createCharacter = function(character) {
+		var XMLData = character.cloneNode(true);
+		var newCharacter = new Character(XMLData);
+		if (!isComplex(newCharacter)) {
+			setPrimitive(newCharacter);
+		} else {
+			setComplex(newCharacter);
+		}
+	};
 
 	var setGroups = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");
