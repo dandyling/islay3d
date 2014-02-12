@@ -678,3 +678,65 @@ var DialogActionToolbarCharacter = function(toolbar) {
 
 	return dialog;
 }; 
+
+var DialogActionToolbarTransform = function(toolbar) {
+	var dialog = new DialogSmallToolbar2({
+		x : toolbar.getX() + toolbar.rect.getWidth() / 2 - 380 / 2,
+		y : toolbar.getY() - 165 - 10,
+		width : 380,
+		height : 165,
+		layer : toolbar.layer,
+		toolbar : toolbar
+	});
+	var ButtonRadio = dialog.ButtonRadio;
+
+	dialog.getStateXML = function() {
+		var xml = document.createElement("stateOption");
+		$(xml).attr({
+			option : MESSAGETYPE[selectBoxCharacter.value],
+			message : (document.getElementById("inputTextCustomMessage") != undefined) ? document.getElementById("inputTextCustomMessage").value : selectBoxMessage.value,
+		});
+		return xml;
+	};
+
+	dialog.getStateXML = function() {
+		var xml = document.createElement("stateOption");
+
+		$(xml).attr({
+			option : buttonRadio.getClicked(),
+		});
+
+		return xml;
+	};
+
+	var getDefaultButton = function() {
+		for (var key in OPTIONTYPE) {
+			if (toolbar.state.xml2.attributes["option"] != undefined && OPTIONTYPE[key] == toolbar.state.xml2.attributes["option"].value) {
+				return key;
+			}
+		}
+	};
+
+	var OPTIONTYPE = new Object();
+	OPTIONTYPE[STRINGS["diagramEditor38"][lang]] = "show";
+	OPTIONTYPE[STRINGS["diagramEditor39"][lang]] = "hide";
+	OPTIONTYPE[STRINGS["diagramEditor40"][lang]] = "exit";
+	OPTIONTYPE[STRINGS["diagramEditor41"][lang]] = "finish";
+
+	var buttonRadio = new ButtonRadio('buttonRadio', 100, 100, [STRINGS["diagramEditor38"][lang], STRINGS["diagramEditor39"][lang], STRINGS["diagramEditor40"][lang], STRINGS["diagramEditor41"][lang]], getDefaultButton());
+
+	buttonRadio.getClicked = function() {
+		var childButtons = buttonRadio.getElementsByTagName("input");
+		for (var i = 0; i < childButtons.length; i++) {
+			if (childButtons[i].checked) {
+				var labelText = childButtons[i].attributes["labelText"].value;
+				var xml = OPTIONTYPE[labelText];
+				return xml;
+			}
+		}
+	};
+
+	toolbar.layer.draw();
+
+	return dialog;
+}; 
