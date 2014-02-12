@@ -93,5 +93,14 @@ executeActionType2 = function(player, character, state) {
 		setTimeout(function(){
 			transformTimeout = false;
 		}, 400);
+	} else if (option == "hide") {
+		if(transformTimeout == true){
+			return;
+		}
+		player.transform(character, player.inviDumXML);
+		transformTimeout = true;
+		setTimeout(function(){
+			transformTimeout = false;
+		}, 400);
 	}
 }; 
