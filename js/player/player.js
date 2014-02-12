@@ -153,6 +153,17 @@ var Player = function() {
 			setComplex(newCharacter);　// this function is obsolete
 		}
 	};
+	
+	player.inviDumXML = '<character name="invidum" parts="invidum" isshow="true" rotation="1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000">\
+	<statediagram name="Diagram 1">\
+	<statelist>\
+	<state name="State 0" action="stay" pos_x="500" pos_y="300"/>\
+	</statelist>\
+	<translist>\
+	</translist>\
+	</statediagram>\
+	</character>';
+
 
 	var setGroups = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");

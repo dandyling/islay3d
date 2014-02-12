@@ -252,7 +252,7 @@ var STRINGS = {
 		jp : "いなくなる"
 	},
 	diagramEditor41 : {
-		en : "The End",
+		en : "End",
 		jp : "アニメーションを終了させる"
 	},
 	diagramEditor42 : {

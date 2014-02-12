@@ -681,9 +681,9 @@ var DialogActionToolbarCharacter = function(toolbar) {
 
 var DialogActionToolbarTransform = function(toolbar) {
 	var dialog = new DialogSmallToolbar2({
-		x : toolbar.getX() + toolbar.rect.getWidth() / 2 - 380 / 2,
+		x : toolbar.getX() + toolbar.rect.getWidth() / 2 - (420 + 20) / 2,
 		y : toolbar.getY() - 165 - 10,
-		width : 380,
+		width : 420 + 20,
 		height : 165,
 		layer : toolbar.layer,
 		toolbar : toolbar
@@ -723,7 +723,15 @@ var DialogActionToolbarTransform = function(toolbar) {
 	OPTIONTYPE[STRINGS["diagramEditor40"][lang]] = "exit";
 	OPTIONTYPE[STRINGS["diagramEditor41"][lang]] = "finish";
 
-	var buttonRadio = new ButtonRadio('buttonRadio', 100, 100, [STRINGS["diagramEditor38"][lang], STRINGS["diagramEditor39"][lang], STRINGS["diagramEditor40"][lang], STRINGS["diagramEditor41"][lang]], getDefaultButton());
+	var buttonRadio = new ButtonRadio(
+				'buttonRadio', 
+				0, 
+				0, 
+				[		STRINGS["diagramEditor38"][lang], 
+						STRINGS["diagramEditor39"][lang], 
+						STRINGS["diagramEditor40"][lang], 
+						STRINGS["diagramEditor41"][lang]], 
+				getDefaultButton());
 
 	buttonRadio.getClicked = function() {
 		var childButtons = buttonRadio.getElementsByTagName("input");

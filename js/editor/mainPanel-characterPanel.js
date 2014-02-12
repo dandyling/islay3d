@@ -602,15 +602,6 @@ stage.setData = function(name, path) {
 };
 
 stage.setData("invidum", "users/Google105162652429509013137/models/dummy.dae");
-player.inviDumXML = '<character name="invidum" parts="invidum" isshow="true" rotation="1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000">\
-<statediagram name="Diagram 1">\
-<statelist>\
-<state name="State 0" action="stay" pos_x="500" pos_y="300"/>\
-</statelist>\
-<translist>\
-</translist>\
-</statediagram>\
-</character>';
 
 stage.getObjectXML = function() {
 	var objectlist = document.createElement("objectlist");
