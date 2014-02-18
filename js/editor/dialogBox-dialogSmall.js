@@ -147,11 +147,11 @@ var DialogSmall = function(config) {
 
 		return table;
 	};
+	
 
 	dialog.ButtonRadio = function(name, left, top, buttons, value) {
 		var inputDiv = document.createElement("div");
 		inputDivParent.appendChild(inputDiv);
-		//$(inputDivParent).css('background', 'green');
 		for (var i = 0; i < buttons.length; i++) {
 			var input = document.createElement("input");
 			$(input).attr({
@@ -174,16 +174,10 @@ var DialogSmall = function(config) {
 			inputDiv.appendChild(input);
 			inputDiv.appendChild(label);
 		}
-		//$(inputDiv).css("background", "red");
 		$(inputDiv).offset({
 			left: $(inputDivParent).offset().left - STAGEOFFSETX/2,
 			top: $(inputDivParent).offset().top + STAGEOFFSETY
-			});
-		/*$(inputDiv).position({
-			my : "center",
-			at : "center",
-			of : inputDivParent
-		});*/
+	  });
 		$(inputDivParent).buttonset();
 		return inputDivParent;
 	};
