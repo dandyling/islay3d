@@ -690,14 +690,6 @@ var DialogActionToolbarTransform = function(toolbar) {
 	});
 	var ButtonRadio = dialog.ButtonRadio;
 
-	dialog.getStateXML = function() {
-		var xml = document.createElement("stateOption");
-		$(xml).attr({
-			option : MESSAGETYPE[selectBoxCharacter.value],
-			message : (document.getElementById("inputTextCustomMessage") != undefined) ? document.getElementById("inputTextCustomMessage").value : selectBoxMessage.value,
-		});
-		return xml;
-	};
 
 	dialog.getStateXML = function() {
 		var xml = document.createElement("stateOption");
