@@ -161,10 +161,13 @@ var Player = function() {
 	};
 	
 	player.hide = function(character) {
-		var XMLData = character.XML.cloneNode(true);
+	    var XMLData = character.XML.cloneNode(true);
 		
+		if(XMLData.attributes['parts'].value != 'invidum'){
+    		var oriParts = XMLData.attributes['parts'].value;
+    		XMLData.setAttribute('oriparts', oriParts);
+		}
 		XMLData.attributes['parts'].value = 'invidum';
-		console.log(player.data);
 		console.log(XMLData);
 		
 		var newCharacter = new Character(XMLData);
@@ -188,6 +191,41 @@ var Player = function() {
 		} else {
 			setComplex(newCharacter);　// this function is obsolete
 		}
+	};
+	
+	player.show = function(character) {
+	    console.log(character.XML);
+	    if(character.XML.attributes['oriparts'] == undefined){
+	        return;
+	    }
+	    var oriName = character.XML.attributes['oriparts'].value;
+	    console.log(oriName);
+	    
+	    var XMLData = player.characters[oriName];
+	    console.log(XMLData);
+		var newCharacter = new Character(XMLData);
+		if (!isComplex(newCharacter)) {
+			var parts = newCharacter.XML.attributes["parts"].value;
+			var path = player.data[parts].attributes["path"].value;
+	
+			player.load(path, parts, function() {
+				newCharacter.set(this);
+				newCharacter.bounding.radius = 12;		// custom bounding radius for collision detection
+				player.scene3d.addChild(newCharacter);
+				newCharacter.isComplex = false;
+				newCharacter.x = character.x;
+				newCharacter.y = character.y;
+				newCharacter.z = character.z;
+				newCharacter.rotation = character.rotation;
+				player.scene3d.removeChild(character);
+				newCharacter.XML.removeAttribute('oriparts');
+			}, function() {
+				console.log("player load model error!!");
+			});
+		} else {
+			setComplex(newCharacter);　// this function is obsolete
+		}
+		
 	};
 	
 	var setGroups = function() {

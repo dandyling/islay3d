@@ -102,5 +102,14 @@ executeActionType2 = function(player, character, state) {
 		setTimeout(function(){
 			transformTimeout = false;
 		}, 400);
+	} else if (option == "show") {
+		if(transformTimeout == true){
+			return;
+		}
+		player.show(character);
+		transformTimeout = true;
+		setTimeout(function(){
+			transformTimeout = false;
+		}, 400);
 	}
 }; 
