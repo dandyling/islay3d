@@ -161,15 +161,13 @@ var Player = function() {
 	};
 	
 	player.hide = function(character) {
-	    var XMLData = character.XML.cloneNode(true);
+	    var XMLData = character.XML;
 		
 		if(XMLData.attributes['parts'].value != 'invidum'){
     		var oriParts = XMLData.attributes['parts'].value;
     		XMLData.setAttribute('oriparts', oriParts);
 		}
 		XMLData.attributes['parts'].value = 'invidum';
-		console.log(XMLData);
-		
 		var newCharacter = new Character(XMLData);
 		if (!isComplex(newCharacter)) {
 			var parts = newCharacter.XML.attributes["parts"].value;
@@ -194,15 +192,12 @@ var Player = function() {
 	};
 	
 	player.show = function(character) {
-	    console.log(character.XML);
 	    if(character.XML.attributes['oriparts'] == undefined){
 	        return;
 	    }
-	    var oriName = character.XML.attributes['oriparts'].value;
-	    console.log(oriName);
-	    
-	    var XMLData = player.characters[oriName];
-	    console.log(XMLData);
+	   // var oriName = character.XML.attributes['oriparts'].value;
+	    character.XML.attributes['parts'].value = character.XML.attributes['oriparts'].value;
+	    var XMLData = character.XML;
 		var newCharacter = new Character(XMLData);
 		if (!isComplex(newCharacter)) {
 			var parts = newCharacter.XML.attributes["parts"].value;
@@ -219,6 +214,7 @@ var Player = function() {
 				newCharacter.rotation = character.rotation;
 				player.scene3d.removeChild(character);
 				newCharacter.XML.removeAttribute('oriparts');
+				console.log(newCharacter.XML);
 			}, function() {
 				console.log("player load model error!!");
 			});
