@@ -97,7 +97,7 @@ executeActionType2 = function(player, character, state) {
 		if(transformTimeout == true){
 			return;
 		}
-		player.transform(character, player.inviDumXML);
+		player.hide(character);
 		transformTimeout = true;
 		setTimeout(function(){
 			transformTimeout = false;

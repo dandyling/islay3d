@@ -40,6 +40,12 @@ var Player = function() {
 		player.XML3DI = $.parseXML(filename);
 		
 		player.data = new Hash(player.XML3DI.getElementsByTagName("data"), "name");
+		var datum = document.createElement('data');
+		$(datum).attr({
+			name : 'invidum',
+			path : 'users/Google105162652429509013137/models/dummy.dae'
+		});
+		player.data['invidum'] = datum;
 		setCharacters();
 		setGroups();
 		collisionTimeout = true;
@@ -154,17 +160,36 @@ var Player = function() {
 		}
 	};
 	
-	player.inviDumXML = '<character name="invidum" parts="invidum" isshow="true" rotation="1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000">\
-	<statediagram name="Diagram 1">\
-	<statelist>\
-	<state name="State 0" action="stay" pos_x="500" pos_y="300"/>\
-	</statelist>\
-	<translist>\
-	</translist>\
-	</statediagram>\
-	</character>';
-
-
+	player.hide = function(character) {
+		var XMLData = character.XML.cloneNode(true);
+		
+		XMLData.attributes['parts'].value = 'invidum';
+		console.log(player.data);
+		console.log(XMLData);
+		
+		var newCharacter = new Character(XMLData);
+		if (!isComplex(newCharacter)) {
+			var parts = newCharacter.XML.attributes["parts"].value;
+			var path = player.data[parts].attributes["path"].value;
+	
+			player.load(path, parts, function() {
+				newCharacter.set(this);
+				newCharacter.bounding.radius = 12;		// custom bounding radius for collision detection
+				player.scene3d.addChild(newCharacter);
+				newCharacter.isComplex = false;
+				newCharacter.x = character.x;
+				newCharacter.y = character.y;
+				newCharacter.z = character.z;
+				newCharacter.rotation = character.rotation;
+				player.scene3d.removeChild(character);
+			}, function() {
+				console.log("player load model error!!");
+			});
+		} else {
+			setComplex(newCharacter);　// this function is obsolete
+		}
+	};
+	
 	var setGroups = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");
 		for(var g in player.groups){

@@ -601,8 +601,6 @@ stage.setData = function(name, path) {
 	}
 };
 
-stage.setData("invidum", "users/Google105162652429509013137/models/dummy.dae");
-
 stage.getObjectXML = function() {
 	var objectlist = document.createElement("objectlist");
 	for (var name in stage.objectlist) {
