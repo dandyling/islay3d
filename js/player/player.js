@@ -240,8 +240,7 @@ var Player = function() {
 			}
 
 			player.transition(characters[i]);
-			animation(characters[i].childNodes);
-			// Recurse child characters
+			//animation(characters[i].childNodes);  // this code is for complex character, and is obsolete
 		}
 	};
 

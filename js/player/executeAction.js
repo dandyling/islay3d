@@ -97,5 +97,10 @@ executeActionType2 = function(player, character, state) {
 		player.hide(character);
 	} else if (option == "show") {
 		player.show(character);
+	} else if (option == "exit") {
+	    player.scene3d.removeChild(character);
+	} else if (option == "finish") {
+	    alert("The game has ended.");
+	    window.close();
 	}
 }; 
