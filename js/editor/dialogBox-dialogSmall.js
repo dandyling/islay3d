@@ -177,7 +177,8 @@ var DialogSmall = function(config) {
 		$(inputDiv).offset({
 			left: $(inputDivParent).offset().left - STAGEOFFSETX/2,
 			top: $(inputDivParent).offset().top + STAGEOFFSETY
-	  });
+	    });
+	    $(inputDiv).width(480);
 		$(inputDivParent).buttonset();
 		return inputDivParent;
 	};
