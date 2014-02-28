@@ -121,16 +121,33 @@ var Player = function() {
 		player.characters = new Hash(player.XML3DI.getElementsByTagName("character"), "name");
 	};
 
-	player.createGroup = function(group) {
+	player.createGroup = function(character, group) {
 		var forks = group.getElementsByTagName("fork");
 		for (var i = 0; i < forks.length; i++) {
 			var name = forks[i].attributes["character"].value;
 			var XMLData = player.characters[name].cloneNode(true);
 			var newCharacter = new Character(XMLData);
+			
 			if (!isComplex(newCharacter)) {
-				setPrimitive(newCharacter);
+				var parts = newCharacter.XML.attributes["parts"].value;
+				var path = player.data[parts].attributes["path"].value;
+		
+				player.load(path, parts, function() {
+					newCharacter.set(this);
+					newCharacter.bounding.radius = 12;		// custom bounding radius for collision detection
+					player.scene3d.addChild(newCharacter);
+					newCharacter.isComplex = false;
+					if(character != null) {
+						newCharacter.x = character.x;
+						newCharacter.y = character.y;
+						newCharacter.z = character.z;
+						newCharacter.rotation = character.rotation;
+					}
+				}, function() {
+					console.log("player load model error!!");
+				});
 			} else {
-				setComplex(newCharacter);
+				setComplex(newCharacter);　// this function is obsolete
 			}
 		}
 	};
@@ -228,7 +245,7 @@ var Player = function() {
 		player.groups = new Hash(player.XML3DI.getElementsByTagName("group"), "name");
 		for(var g in player.groups){
 			if(player.groups[g].attributes["isshow"].value == "true"){
-				player.createGroup(player.groups[g]);	
+				player.createGroup(null, player.groups[g]);	
 			}
 		}
 	};

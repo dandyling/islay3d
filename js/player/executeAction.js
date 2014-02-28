@@ -78,7 +78,7 @@ executeActionType2 = function(player, character, state) {
 			return;
 		}
 		var group = state.attributes["group"].value;
-		player.createGroup(player.groups[group]);
+		player.createGroup(character, player.groups[group]);
 		gforkTimeout = true;
 		setTimeout(function(){
 			gforkTimeout = false;
